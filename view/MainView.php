@@ -4,16 +4,19 @@ include_once 'libs/Smarty.class.php';
 class MainView{
 	private $smarty;
     private $errors;
+    private $template = 'templates/index.tpl';
     
 	function __construct(){
 		$this->smarty = new Smarty();
 		$this->errors = array();
 	}
 	
-	function show($template, $obj){
+	function show($obj = null){
 		$this->smarty->assign('errors', $this->errors);
-		$this->smarty->assign('obj', $obj);
-		$this->smarty->display($template);
+		if ($obj == null)
+			$this->smarty->assign('obj', $obj);
+		
+		$this->smarty->display($this->template);
 	}
 	
 	

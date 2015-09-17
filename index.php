@@ -13,6 +13,8 @@ $mainController = new MainController();
  * Request o esta definida y su valor es el default
  * */
 if(!array_key_exists(ConfigApp::$ACTION, $_REQUEST) || $actionReq == ConfigApp::$ACTION_DEFAULT){
-  
+  $mainController->showHome();
+
 } else {
+
 }
