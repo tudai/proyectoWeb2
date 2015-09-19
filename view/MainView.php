@@ -5,9 +5,9 @@ class MainView{
 	
 	private $smarty;
     private $errors;
- 
+ 	private $tpl_dir = 'templates/';
     private $template = 'templates/index.tpl';
-    private $component = 'templates/home.tpl';
+    private $component = 'home';
     
 	function __construct(){
 		$this->smarty = new Smarty();
@@ -19,7 +19,7 @@ class MainView{
 		if ($component == null)
 			$this->smarty->assign('component', $component);
 		else 
-			$this->smarty->assign('component', $this->component);
+			$this->smarty->assign('component', $this->tpl_dir . $this->component. '.tpl');
 		
 		$this->smarty->display($this->template);
 	}

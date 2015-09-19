@@ -14,6 +14,6 @@ class MainController{
 	}
 	
 	function showHome(){
-		$this->view->show();
+		$this->view->show('home');
 	}
 }
