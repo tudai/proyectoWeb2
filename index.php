@@ -3,7 +3,9 @@
 include_once 'config/config_app.php';
 include_once 'controller/MainController.php';
 
-$actionReq = $_REQUEST[ConfigApp::$ACTION];
+
+if (isset($_REQUEST[ConfigApp::$ACTION]))
+	$actionReq = $_REQUEST[ConfigApp::$ACTION];
 
 $mainController = new MainController();
 
