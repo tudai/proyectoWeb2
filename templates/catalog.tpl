@@ -1,4 +1,3 @@
-{include file="header.tpl"}
 
 <section>
   <div>
@@ -6,6 +5,3 @@
   </div>
 </section>
 
-
-
-{include file="footer.tpl"}

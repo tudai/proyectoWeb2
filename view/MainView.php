@@ -12,6 +12,8 @@ class MainView{
 	function __construct(){
 		$this->smarty = new Smarty();
 		$this->errors = array();
+		
+		$this->smarty->caching = false;
 	}
 	
 	function show($component = null){
