@@ -24,7 +24,14 @@ class MainView{
 		$this->smarty->display($this->template);
 	}
 	
-	
+	function getHTML($component, $middlePath = null){
+		if ($middlePath == null)
+			$path = $this->tpl_dir . $component . '.tpl';
+		else 
+			$path = $this->tpl_dir . $middlePath . $component . '.tpl';
+			 
+		return $this->smarty->fetch($path);
+	}
 	
 	function showErrors($error){
 		array_push($this->errors, $error);
