@@ -6,4 +6,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	</head>
   <body>
-    <h1></h1>
+		<div class="container">
+			<div class="row">
+				<header>
+						<img src="images/header.jpg" class="img-responsive" alt="libros" />
+				</header>
+			</div>
+		</div>

@@ -1,5 +1,3 @@
-{include file="header.tpl"}
-
 <section>
   <div >
     slider
@@ -8,7 +6,3 @@
     tendencias
   </div>
 </section>
-
-
-
-{include file="footer.tpl"}
