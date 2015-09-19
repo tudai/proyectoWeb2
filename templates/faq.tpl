@@ -1,6 +1,6 @@
 
 <section>
   <div>
-    cosas catalogo
+    faq
   </div>
 </section>
