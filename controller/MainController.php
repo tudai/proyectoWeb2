@@ -14,6 +14,6 @@ class MainController{
 	}
 	
 	function showHome(){
-		$this->view->show('home');
+		$this->view->show(ConfigApp::$ACTION_DEFAULT);
 	}
 }
