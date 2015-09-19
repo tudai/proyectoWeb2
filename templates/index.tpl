@@ -1,7 +1,6 @@
 {include file="header.tpl"}
 
 <div >
-	{include file=$component}
 </div>
 
 
