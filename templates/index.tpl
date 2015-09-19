@@ -1,6 +1,9 @@
+
 {include file="header.tpl"}
 
-<div >
+
+<div id="main-page">
+	{include file=$component}
 </div>
 
 
