@@ -21,4 +21,10 @@ class MainController{
 		return $this->view->getHTML($content);
 
 	}
+
+	function addBook(){
+		if (isset($_FILES['bookToUpload'])){
+			$this->model->uploadBook()
+		}
+	}
 }
