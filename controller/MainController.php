@@ -24,7 +24,7 @@ class MainController{
 
 	function addBook(){
 		if (isset($_FILES['bookToUpload'])){
-			$this->model->uploadBook()//necesita un archivo por parametro
+			$this->model->uploadBook($_FILES['imagesToUpload']);//necesita un archivo por parametro
 		}
 	}
 }
