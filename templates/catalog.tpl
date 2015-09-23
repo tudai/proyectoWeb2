@@ -29,7 +29,7 @@
       <div class="col-md-12">
         <div class="form-group col-md-8">
           <label for="bookToUpload">Agregar archivo</label>
-          <input type="file" id="multipart/form-data">
+          <input type="file" id="bookToUpload">
         </div>
         <div class="col-md-8">
           <button type="submit" class="btn btn-default">Enviar</button>
