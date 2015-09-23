@@ -5,19 +5,19 @@
       <div class="form-group col-md-12">
         <div class="col-md-6">
             <label for="exampleInputBookName">Nombre Libro</label>
-            <input type="text" class="form-control" id="exampleInputBookName" placeholder="Nombre">
+            <input type="text" class="form-control" name="bookName" id="exampleInputBookName" placeholder="Nombre">
         </div>
       </div>
       <div class="form-group col-md-12">
         <div class="col-md-6">
-          <label for="exampleInputeDescription">Descripcion</label>
-          <textarea class="form-control" rows="3"></textarea>
+          <label for="exampleInputeDescription" >Descripcion</label>
+          <textarea class="form-control" name= "bookDescrip" rows="3"></textarea>
         </div>
       </div>
       <div class="col-md-12">
         <div class="col-md-6">
           <label for="select">Elige categoria</label>
-          <select class="form-control">
+          <select class="form-control" name="bookSection">
             <option>1</option>
             <option>2</option>
             <option>3</option>

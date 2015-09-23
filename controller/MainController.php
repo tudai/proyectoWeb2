@@ -23,8 +23,14 @@ class MainController{
 	}
 
 	function addBook(){
-		if (isset($_FILES['bookToUpload'])){
-			$this->model->uploadBook($_FILES['imagesToUpload']);
+
+		if (isset($_FILES['bookToUpload'])){ //falta el request?
+			$book = new stdClass; //se crea el objeto libro para guardar el libro en la base de datos
+			$book->name = ($_REQUEST['bookName']);
+			$book->description = ($_REQUEST['bookDescrip']);
+// falta la url
+			$book->section = ($_REQUEST['bookSection']);
+			$this->model->saveBook($_FILES['imagesToUpload']);
 		}
 	}
 }
