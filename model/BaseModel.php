@@ -15,15 +15,22 @@ class BaseModel {
     return $destino;
   }
 
+  function getSections(){
+    $consulta = $this->db->prepare("SELECT * FROM seccion");
+    $consulta->execute();
+    return $consulta->fetchAll();
+  }
+
   function saveBook($book, $file){
     $ruta = $this->uploadBook($file);
     $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, descripcion_libro, url_libro, seccion_id_seccion)
                                     VALUES(:name, :description, :url, :section)');
     $consulta->bindParam(':name', $book->name);
     $consulta->bindParam(':description', $book->description);
-    $consulta->bindParam(':url', $book->url);
+    $consulta->bindParam(':url', $ruta);
     $consulta->bindParam(':section', $book->section);
-    $consulta->execute();
+
+    return $consulta->execute();
   }
 
 }

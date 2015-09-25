@@ -17,19 +17,17 @@
       <div class="col-md-12">
         <div class="col-md-6">
           <label for="select">Elige categoria</label>
+          {for }
           <select class="form-control" name="bookSection">
             <option>1</option>
             <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
           </select>
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group col-md-8">
           <label for="bookToUpload">Agregar archivo</label>
-          <input type="file" id="bookToUpload">
+          <input type="file" name="bookToUpload">
         </div>
         <div class="col-md-8">
           <button type="submit" class="btn btn-default">Enviar</button>

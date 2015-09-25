@@ -8,7 +8,9 @@ $mainController = new MainController();
 if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];
 
-
+	if ($actionReq == ConfigApp::$ACTION_CATALOG_ADD) {
+		echo $mainController->addBook();
+	}
 
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT ||
 		$actionReq == ConfigApp::$ACTION_CATALOG ||
