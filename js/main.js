@@ -2,7 +2,7 @@ function getLocalServerURL(){
 	return ((location.href.split('/'))[0])+'//'+((location.href.split('/'))[2]) + "/";
 }
 
-function loadSection (path, target){
+function loadSiteComponent(path, target){
   $.ajax({
     method: 'GET',
     url: getLocalServerURL() + 'proyectoWeb2/index.php?action=' + path,
@@ -19,6 +19,6 @@ function loadSection (path, target){
 $(function(){
   $('nav li > a').click(function(event){
     event.preventDefault();
-    loadSection(this.id, 'content');
+    loadSiteComponent(this.id, 'content');
   })
 })
