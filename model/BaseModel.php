@@ -1,11 +1,14 @@
 <?php
+
+require_once 'config/db_params.php';
+
 class BaseModel {
 
   private $book;
   private $db;
 
   function __construct() {
-      $this->db = new PDO('mysql:host=localhost;dbname=web2dai;charset=utf8', 'root', '');
+      $this->db = new PDO(DatabaseConfig::$DB_LOCATION, DatabaseConfig::$DB_USER, DatabaseConfig::$DB_PASSWORD);
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 

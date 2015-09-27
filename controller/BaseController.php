@@ -10,7 +10,7 @@ class BaseController{
 		$this->view = new MainView();
 	}
 
-	function getContent(){
+	function getContent($content){
 
 	}
 
