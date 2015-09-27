@@ -5,7 +5,7 @@ class BaseModel {
   private $db;
 
   function __construct() {
-      $this->db = new PDO('mysql:host=localhost;dbname=web2dai;charset=utf8', 'root', '');
+      $this->db = new PDO('mysql:host=localhost;dbname=web2dai;charset=utf8', 'web2dai', 'web2dai');
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
