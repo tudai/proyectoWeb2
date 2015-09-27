@@ -26,6 +26,12 @@ class MainController{
 		return $this->model->getSections();
 	}
 
+	function addSection(){
+		if (isset($_REQUEST['bookSectSelector'])){
+			return $this->model->saveSection($_REQUEST['bookSectSelector']);
+		}
+	}
+
 	function addBook(){
 
 		if (isset($_REQUEST['bookName']) && isset($_FILES['bookToUpload'])){

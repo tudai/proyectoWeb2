@@ -5,7 +5,7 @@ class BaseModel {
   private $db;
 
   function __construct() {
-      $this->db = new PDO('mysql:host=localhost;dbname=web2dai;charset=utf8', 'web2dai', 'web2dai');
+      $this->db = new PDO('mysql:host=localhost;dbname=web2dai;charset=utf8', 'root', '');
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
@@ -19,6 +19,13 @@ class BaseModel {
     $consulta = $this->db->prepare("SELECT * FROM seccion");
     $consulta->execute();
     return $consulta->fetchAll();
+  }
+
+  function saveSection($section){
+    $query = $this->db->prepare('INSERT INTO seccion(nombre_seccion)
+                                 VALUES (:section)');
+    $query->bindParam(':section', $section);
+    return $query->execute();
   }
 
   function saveBook($book, $file){

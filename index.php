@@ -12,9 +12,15 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		echo $mainController->addBook();
 	}
 
+	if ($actionReq == ConfigApp::$ACTION_SECTION){
+		echo $mainController->addSection();
+
+	}
+
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT ||
 		$actionReq == ConfigApp::$ACTION_CATALOG ||
-		$actionReq == ConfigApp::$ACTION_FAQS) {
+		$actionReq == ConfigApp::$ACTION_FAQS ||
+		$actionReq == ConfigApp::$ACTION_SECTION) {
 
 			echo $mainController->getContent($actionReq);
 	}
