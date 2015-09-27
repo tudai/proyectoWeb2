@@ -32,7 +32,7 @@
           <input type="file" name="bookToUpload">
         </div>
         <div class="col-md-8">
-          <button type="submit" class="btn btn-default">Enviar</button>
+          <button data-action="add-book" type="submit" class="btn btn-default">Enviar</button>
         </div>
 
       </div>

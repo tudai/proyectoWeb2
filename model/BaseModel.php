@@ -4,8 +4,8 @@ require_once 'config/db_params.php';
 
 class BaseModel {
 
-  private $book;
-  private $db;
+  protected  $book;
+  protected  $db;
 
   function __construct() {
       $this->db = new PDO(DatabaseConfig::$DB_LOCATION, DatabaseConfig::$DB_USER, DatabaseConfig::$DB_PASSWORD);

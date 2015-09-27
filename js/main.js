@@ -46,7 +46,8 @@ function sendInfoServer(path, target){
 		method:'POST',
 		url: getLocalServerURL() + 'proyectoWeb2/index.php?action=' + path,
 		dataType: 'text',
-		data: JSON.stringify(info),
+		contentType: 'multipart/form-data',
+		data: $('.uploadForm').serializeArray(),
 		success: function(data){
 			alert('funciono');
 		}
@@ -61,8 +62,14 @@ $(function(){
     event.preventDefault();
     loadSiteComponent(this.id, 'content');
   })
-	$('.uploadForm button').click(function(event){
+  
+  
+  $('body').on('click', '.uploadForm button', function(event){
     event.preventDefault();
-    sendInfoServer(this.id, 'content');
-	})
+    sendInfoServer($(this).attr('data-action'), 'content');
+  })
+
+  
+  
+  
 })
