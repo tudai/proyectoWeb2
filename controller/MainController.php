@@ -28,8 +28,15 @@ class MainController{
 
 	function addSection(){
 		if (isset($_REQUEST['bookSectSelector'])){
-			return $this->model->saveSection($_REQUEST['bookSectSelector']);
+			$result = $this->model->saveSection($_REQUEST['bookSectSelector']);
+			if ($result){
+				return "Se agregó la seccion con exito";
+			}
+			else {
+				return "Se ha encontrado un problema al agregar la seccion";
+			}
 		}
+
 	}
 
 	function addBook(){
@@ -40,9 +47,15 @@ class MainController{
 			$book->description = $_REQUEST['bookDescrip'];
 			$book->section = $_REQUEST['bookSection'];
 
-			return $this->model->saveBook($book, $_FILES['bookToUpload']);
-		} else {
-			return "no entro nunca al if del orto";
+			$result = $this->model->saveBook($book, $_FILES['bookToUpload']);
+			if ($result){
+				return "Se agregó el libro con exito";
+			}
+			else {
+				return "Se ha encontrado un problema al agregar el libro";
+			}
 		}
-	}
+
+
+		}
 }
