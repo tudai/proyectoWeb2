@@ -1,7 +1,7 @@
 
 <section>
   <div>
-    <form action="index.php?action=add_book" method="POST" enctype="multipart/form-data">
+    <form class="uploadForm">
       <div class="form-group col-md-12">
         <div class="col-md-6">
             <label for="exampleInputBookName">Nombre Libro</label>
