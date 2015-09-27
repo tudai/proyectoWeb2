@@ -16,7 +16,7 @@ class BaseModel {
   }
 
   function getSections(){
-    $consulta = $this->db->prepare("SELECT * FROM seccion");
+    $consulta = $this->db->prepare("SELECT nombre_seccion FROM seccion");
     $consulta->execute();
     return $consulta->fetchAll();
   }

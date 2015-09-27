@@ -26,13 +26,16 @@ class MainView{
 		$this->smarty->display($this->template);
 	}
 
-	function getHTML($component, $middlePath = null){
+	function getHTML($component, $middlePath = null, $paramsArray = null){
 		if ($middlePath == null)
 			$path = $this->tpl_dir . $component . '.tpl';
 		else
 			$path = $this->tpl_dir . $middlePath . $component . '.tpl';
 
-		return $this->smarty->fetch($path);
+		if ($paramsArray !=null)
+			foreach ($paramsArray as $key => $value)
+				$this->smarty->assign($key, $value);
+			return $this->smarty->fetch($path);
 	}
 
 	function showErrors($error){

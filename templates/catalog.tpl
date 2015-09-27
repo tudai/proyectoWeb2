@@ -1,5 +1,5 @@
 
-<section> 
+<section>
   <div>
     <form action="index.php?action=add_book" method="POST" enctype="multipart/form-data">
       <div class="form-group col-md-12">
@@ -17,11 +17,13 @@
       <div class="col-md-12">
         <div class="col-md-6">
           <label for="select">Elige categoria</label>
-
+          {if $sections}
           <select class="form-control" name="bookSection">
-            <option>1</option>
-            <option>2</option>
+           {foreach $sections as $section}
+            <option>{$section['nombre_seccion']}</option>
+            {/foreach}
           </select>
+          {/if}
         </div>
       </div>
       <div class="col-md-12">

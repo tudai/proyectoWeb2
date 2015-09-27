@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 class BaseController{
-	
-	private $model;
-	private $view;
-	
+
+	protected $model;
+	protected $view;
+
 	function __construct(){
 		$this->model = new BaseModel();
 		$this->view = new MainView();
 	}
-	
+
 	function getContent(){
-		
+
 	}
-	
+
 }

@@ -1,14 +1,18 @@
-<?php 
+<?php
+require_once 'BaseController.php';
 
 class CatalogController extends BaseController{
-	
-	function __construct(){		
-		parent::__constructr();
+
+	function __construct(){
+		parent::__construct();
 	}
-	
-	function getContent(){
-		$sections = $this->model->getAllSections();
-		
+
+	function getContent($content){
+
+		$sections = $this->model->getSections();
+		$arr = array('sections' => $sections);
+		return $this->view->getHTML($content, null, $arr);
+		//return json_encode($sections);
 	}
-	
+
 }
