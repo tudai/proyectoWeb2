@@ -23,7 +23,7 @@ class MainController{
 	}
 
 	function getSections(){
-		return this->model->getSections();
+		return $this->model->getSections();
 	}
 
 	function addBook(){
