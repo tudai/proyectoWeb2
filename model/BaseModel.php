@@ -19,7 +19,7 @@ class BaseModel {
   }
 
   function getSections(){
-    $consulta = $this->db->prepare("SELECT nombre_seccion FROM seccion");
+    $consulta = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
     $consulta->execute();
     return $consulta->fetchAll();
   }
@@ -32,7 +32,9 @@ class BaseModel {
   }
 
   function saveBook($book, $file){
+
     $ruta = $this->uploadBook($file);
+ 
     $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, descripcion_libro, url_libro, seccion_id_seccion)
                                     VALUES(:name, :description, :url, :section)');
     $consulta->bindParam(':name', $book->name);
@@ -41,6 +43,7 @@ class BaseModel {
     $consulta->bindParam(':section', $book->section);
 
     return $consulta->execute();
+  	
   }
 
 }

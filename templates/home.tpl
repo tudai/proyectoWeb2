@@ -1,8 +1,8 @@
 <section>
   <div >
-    slider
+	{include file="components/slider.tpl"}
   </div>
   <div >
-    tendencias
+    {include file="components/trending.tpl"}
   </div>
 </section>

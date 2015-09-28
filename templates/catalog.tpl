@@ -1,7 +1,7 @@
 
 <section>
   <div>
-    <form class="uploadForm">
+    <form id="uploadBook" class="uploadForm">
       <div class="form-group col-md-12">
         <div class="col-md-6">
             <label for="exampleInputBookName">Nombre Libro</label>
@@ -11,16 +11,17 @@
       <div class="form-group col-md-12">
         <div class="col-md-6">
           <label for="exampleInputeDescription" >Descripcion</label>
-          <textarea class="form-control" name= "bookDescrip" rows="3"></textarea>
+          <textarea class="form-control" name="bookDescription" rows="3"></textarea>
         </div>
       </div>
       <div class="col-md-12">
+      
         <div class="col-md-6">
           <label for="select">Elige categoria</label>
           {if $sections}
           <select class="form-control" name="bookSection">
            {foreach $sections as $section}
-            <option>{$section['nombre_seccion']}</option>
+            <option id="{$section['id_seccion']}">{$section['nombre_seccion']}</option>
             {/foreach}
           </select>
           {/if}

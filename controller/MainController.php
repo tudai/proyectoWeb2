@@ -40,13 +40,13 @@ class MainController{
 	}
 
 	function addBook(){
-
+		
 		if (isset($_REQUEST['bookName']) && isset($_FILES['bookToUpload'])){
 			$book = new stdClass; //se crea el objeto libro para guardar el libro en la base de datos
 			$book->name = $_REQUEST['bookName'];
-			$book->description = $_REQUEST['bookDescrip'];
+			$book->description = $_REQUEST['bookDescription'];
 			$book->section = $_REQUEST['bookSection'];
-
+			
 			$result = $this->model->saveBook($book, $_FILES['bookToUpload']);
 			if ($result){
 				return "Se agregó el libro con exito";
@@ -55,7 +55,5 @@ class MainController{
 				return "Se ha encontrado un problema al agregar el libro";
 			}
 		}
-
-
-		}
+	}
 }
