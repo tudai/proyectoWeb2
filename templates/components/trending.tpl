@@ -1,12 +1,15 @@
-<!-- <div class="row">
+<div class="row">
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
+    {if $libros}
+      {foreach $libros as $libro}
+      <div class="thumbnail">
+        <img src="..." alt="...">
+        <div class="caption">
+          <h3>{$libro['nombre_libro']}</h3>
+          <p>{$libro['autor_libro']}</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
+        </div>
       </div>
-    </div>
+    {/if}
   </div>
-</div> -->
+</div>

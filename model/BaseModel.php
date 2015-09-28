@@ -6,7 +6,7 @@ class BaseModel {
 
   private  $book;
   private  $db;
-  
+
   private static $ROOT_FOLDER = 'uploaded/books/';
 
   function __construct() {
@@ -17,16 +17,16 @@ class BaseModel {
  private function uploadBook($fileBook, $fileImage){
   	$folder = $this->prepareFolder($fileBook);
   	move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
-  	move_uploaded_file($fileImage['tmp_name'], $folder . $fileImage['name']);
-  	
+  	move_uploaded_file($fileImage['cover'], $folder . $fileImage['name']);
+
   	$paths = array();
   	$paths['base_path'] = $folder;
   	$paths['book_path'] = $folder . $fileBook['name'];
   	$paths['image_path'] = $folder . $fileImage['name'];
-  	
+
     return $paths;
   }
-  
+
 
   private function prepareFolder($file){
   	$dir = BaseModel::$ROOT_FOLDER ."/".uniqid().$file['name']."/";
@@ -35,8 +35,8 @@ class BaseModel {
   	}
   	return $dir;
   }
-  
-  
+
+
   function getSections(){
     $consulta = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
     $consulta->execute();
@@ -63,7 +63,7 @@ class BaseModel {
     $consulta->bindParam(':section', $book->section);
 
     return $consulta->execute();
-  	
+
   }
 
 }
