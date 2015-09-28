@@ -15,6 +15,7 @@ class MainController{
 
 	function showHome(){
 		$this->view->show(ConfigApp::$ACTION_DEFAULT);
+		return $this->model->getBooks();
 	}
 
 	function getContent($content){
@@ -25,6 +26,8 @@ class MainController{
 	function getSections(){
 		return $this->model->getSections();
 	}
+
+
 
 	function addSection(){
 		if (isset($_REQUEST['bookSectSelector'])){
@@ -38,7 +41,7 @@ class MainController{
 		} else {
 			return "No llegó ningun dato al servidor";
 		}
-		
+
 
 	}
 

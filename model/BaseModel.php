@@ -36,6 +36,11 @@ class BaseModel {
   	return $dir;
   }
 
+  function getBooks(){
+    $query = $this->db->prepare("SELECT nombre_libro, autor_libro, img_libro FROM libro");
+    $query->execute();
+    return $query->fetchAll();
+  }
 
   function getSections(){
     $consulta = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
