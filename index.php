@@ -4,7 +4,6 @@ include_once 'config/config_app.php';
 include_once 'controller/MainController.php';
 require_once 'controller/CatalogController.php';
 
-$mainController;
 
 
 $mainController = new MainController();
