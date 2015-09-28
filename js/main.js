@@ -24,7 +24,6 @@ function sendBookToServer(path, target){
     var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
 
-    console.log(datos);
     $.ajax({
       type: "POST",
       url: getSiteURL() + "index.php?action="+path,
@@ -32,6 +31,7 @@ function sendBookToServer(path, target){
       contentType : false,
       processData : false,
       success: function(data){
+    	  console.log(data);
         alert(data);
       },
       error: function(){

@@ -44,10 +44,10 @@ class MainController{
 		if (isset($_REQUEST['bookName']) && isset($_FILES['bookToUpload']) && isset($_FILES['bookImageToUpload'])){
 			$book = new stdClass; //se crea el objeto libro para guardar el libro en la base de datos
 			$book->name = $_REQUEST['bookName'];
-			$book->description = $_REQUEST['bookAuthor'];
+			$book->author = $_REQUEST['bookAuthor'];
 			$book->section = $_REQUEST['bookSection'];
 
-			$result = $this->model->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
+			 $result = $this->model->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
 			if ($result){
 				return "Se agregó el libro con exito";
 			}

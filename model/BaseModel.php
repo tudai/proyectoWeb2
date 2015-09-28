@@ -51,15 +51,15 @@ class BaseModel {
   }
 
   function saveBook($book, $fileBook, $fileImage){
-
+	$ruta = array();
     $ruta = $this->uploadBook($fileBook, $fileImage);
- 
+
     $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, autor_libro, img_libro, url_libro, seccion_id_seccion)
                                     VALUES(:name, :author, :img, :url, :section)');
     $consulta->bindParam(':name', $book->name);
-    $consulta->bindParam(':description', $book->author);
-    $consulta->bindParam(':url', $ruta['book_path']);
+    $consulta->bindParam(':author', $book->author);
     $consulta->bindParam(':img', $ruta['image_path']);
+    $consulta->bindParam(':url', $ruta['book_path']);
     $consulta->bindParam(':section', $book->section);
 
     return $consulta->execute();
