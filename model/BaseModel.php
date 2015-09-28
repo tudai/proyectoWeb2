@@ -4,20 +4,39 @@ require_once 'config/db_params.php';
 
 class BaseModel {
 
-  protected  $book;
-  protected  $db;
+  private  $book;
+  private  $db;
+  
+  private static $ROOT_FOLDER = 'uploaded/books/';
 
   function __construct() {
       $this->db = new PDO(DatabaseConfig::$DB_LOCATION, DatabaseConfig::$DB_USER, DatabaseConfig::$DB_PASSWORD);
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
-  function uploadBook($archivo){
-    $destino = 'uploaded/books/'.uniqid().$archivo['name'];
-    move_uploaded_file($archivo['tmp_name'], $destino);
-    return $destino;
+ private function uploadBook($fileBook, $fileImage){
+  	$folder = $this->prepareFolder($fileBook);
+  	move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
+  	move_uploaded_file($fileImage['tmp_name'], $folder . $fileImage['name']);
+  	
+  	$paths = array();
+  	$paths['base_path'] = $folder;
+  	$paths['book_path'] = $folder . $fileBook['name'];
+  	$paths['image_path'] = $folder . $fileImage['name'];
+  	
+    return $paths;
   }
+  
 
+  private function prepareFolder($file){
+  	$dir = BaseModel::$ROOT_FOLDER ."/".uniqid().$file['name']."/";
+  	if (!file_exists($dir)){
+  		mkdir($dir, 0755);
+  	}
+  	return $dir;
+  }
+  
+  
   function getSections(){
     $consulta = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
     $consulta->execute();
@@ -31,15 +50,16 @@ class BaseModel {
     return $query->execute();
   }
 
-  function saveBook($book, $file){
+  function saveBook($book, $fileBook, $fileImage){
 
-    $ruta = $this->uploadBook($file);
+    $ruta = $this->uploadBook($fileBook, $fileImage);
  
-    $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, descripcion_libro, url_libro, seccion_id_seccion)
-                                    VALUES(:name, :description, :url, :section)');
+    $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, autor_libro, img_libro, url_libro, seccion_id_seccion)
+                                    VALUES(:name, :author, :img, :url, :section)');
     $consulta->bindParam(':name', $book->name);
-    $consulta->bindParam(':description', $book->description);
-    $consulta->bindParam(':url', $ruta);
+    $consulta->bindParam(':description', $book->author);
+    $consulta->bindParam(':url', $ruta['book_path']);
+    $consulta->bindParam(':img', $ruta['image_path']);
     $consulta->bindParam(':section', $book->section);
 
     return $consulta->execute();
