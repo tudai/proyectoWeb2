@@ -32,7 +32,10 @@
 			        	<li><a id="catalog" href="#">Catálogo</a></li>
 			        	<li><a id="faq" href="#">FAQ</a></li>
 			        	<li><a id="register" href="#">Registro</a></li>
-								<li><a id="section" href="#">Administrador</a></li>
+						<li><a id="section" href="#">Administrador</a></li>
+			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+			      		<li><a id="login" href="#">Login</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->

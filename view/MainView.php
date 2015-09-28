@@ -35,7 +35,8 @@ class MainView{
 		if ($paramsArray !=null)
 			foreach ($paramsArray as $key => $value)
 				$this->smarty->assign($key, $value);
-			return $this->smarty->fetch($path);
+		
+		return $this->smarty->fetch($path);
 	}
 
 	function showErrors($error){
