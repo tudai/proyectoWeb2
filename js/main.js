@@ -18,8 +18,9 @@ function loadSiteComponent(path, target){
     error: function(){
       alert('Se produjo un erro de red. Charlale al admin para que lo arregle');
     }
-  })
+  })  
 }
+
 function sendBookToServer(path, target){
     var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
@@ -40,18 +41,37 @@ function sendBookToServer(path, target){
     });
 }
 
+function sendContentToServer(path, target){
+	$.ajax({
+		type: "POST",
+		url: getSiteURL() + "index.php?action="+path,
+		data: $('#uploadSection').serialize(),
+		success: function(data){
+			alert(data);
+		},
+		error: function( jqXHR, textStatus, errorThrown){
+			alert(textStatus);
+		}
+	})
+}
+
+
 $(function(){
   $('nav li > a').click(function(event){
-    event.preventDefault();
-    loadSiteComponent(this.id, 'content');
+	  event.preventDefault();
+  	loadSiteComponent(this.id, 'content');
   })
 
 
   $('body').on('click', '#uploadBook button', function(event){
-    event.preventDefault();
-    sendBookToServer($(this).attr('data-action'), 'content');
+	  event.preventDefault();
+	  sendBookToServer($(this).attr('data-action'), 'content');
   })
 
+  $('body').on('click', '#uploadSection button', function(event){
+	  event.preventDefault();
+	  sendContentToServer($(this).attr('data-action'), 'content');
+  })
 
 
 

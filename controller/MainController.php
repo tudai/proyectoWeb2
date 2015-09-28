@@ -35,7 +35,10 @@ class MainController{
 			else {
 				return "Se ha encontrado un problema al agregar la seccion";
 			}
+		} else {
+			return "No llegó ningun dato al servidor";
 		}
+		
 
 	}
 
