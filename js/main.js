@@ -45,14 +45,14 @@ $(function(){
     event.preventDefault();
     loadSiteComponent(this.id, 'content');
   })
-  
-  
+
+
   $('body').on('click', '#uploadBook button', function(event){
     event.preventDefault();
     sendBookToServer($(this).attr('data-action'), 'content');
   })
 
-  
-  
-  
+
+
+
 })

@@ -23,7 +23,7 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	}
 	if ($actionReq == ConfigApp::$ACTION_CATALOG){
 		echo $catalogController->getContent($actionReq);
-}
+	}
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT ||
 		$actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_SECTION) {
