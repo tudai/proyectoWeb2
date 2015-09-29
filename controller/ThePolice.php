@@ -19,12 +19,23 @@ class ThePolice{
 	}
 	
 	function login(){
-		$user = "user";
+		$userTemp = "";
 		if (isset($_REQUEST['username']) && isset($_REQUEST['password']) ){
 			$username = $_REQUEST['username'];
 			$password = $_REQUEST['password'];
-			$user = $this->model->getUserCredentials($username, $password);
-		}
-		return json_encode($user);
+			$userTemp = $this->model->getUserCredentials($username, $password);
+			
+			if (count($userTemp)>0){
+				$user['username'] = $userTemp[0]['username'];
+				$user['role'] = $userTemp[0]['role'];
+				$user['id'] = session_id();
+			}
+			$_SESSION['activeUser'] = $user;
+			return true;
+		} else
+			return false;
+		
+		
+ 
 	}
 }

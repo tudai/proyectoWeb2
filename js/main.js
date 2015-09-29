@@ -73,6 +73,13 @@ $(function(){
 	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadSection');
   })
 
+  $('body').on('click', '#uploadCategory button', function(event){
+	  event.preventDefault();
+	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadCategory');
+  })
+  /*
+   * Se envía el contenido del formulario de login.
+   */
   $('body').on('click', '#loginForm button', function(event){
 	  event.preventDefault();
 	  sendContentToServer($(this).attr('data-action'), 'content', 'loginForm');
