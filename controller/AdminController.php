@@ -21,8 +21,8 @@ class AdminController extends BaseController{
 	}
 
 	function addCategory(){
-		if (isset($_REQUEST['inputCategory'])){
-			$result = $this->model->saveCategory($_REQUEST['inputCategory']);
+		if (isset($_REQUEST['categoryInput'])){
+			$result = $this->model->saveCategory($_REQUEST['categoryInput']);
 			if ($result){
 				return "Se agregó la seccion con exito";
 			}
