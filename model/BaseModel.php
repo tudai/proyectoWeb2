@@ -17,7 +17,7 @@ class BaseModel {
  private function uploadBook($fileBook, $fileImage){
   	$folder = $this->prepareFolder($fileBook);
   	move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
-  	move_uploaded_file($fileImage['cover'], $folder . $fileImage['name']);
+  	move_uploaded_file($fileImage['tmp_name'], $folder . $fileImage['name']);
 
   	$paths = array();
   	$paths['base_path'] = $folder;
