@@ -30,7 +30,8 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 
 	if ($actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_LOGIN ||
-		$actionReq == ConfigApp::$ACTION_SECTION) {
+		$actionReq == ConfigApp::$ACTION_SECTION ||
+		$actionReq == ConfigApp::$ACTION_CATEGORY) {
 			echo $mainController->getContent($actionReq);
 	}
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT){
@@ -47,7 +48,7 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		$adminController = new AdminController();
 		echo $adminController->addCategory();
 	}
-	
+
 	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
 		$thePolice = new ThePolice();
 		echo $thePolice->login();

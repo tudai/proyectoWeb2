@@ -11,5 +11,6 @@ class ConfigApp {
   public static $ACTION_SECTION_ADD = 'add-section';
   public static $ACTION_LOGIN = 'login';
   public static $ACTION_LOGIN_EXEC = 'execute-login';
+  public static $ACTION_CATEGORY = 'category';
   public static $ACTION_CATEGORY_ADD = 'add-category';
 }

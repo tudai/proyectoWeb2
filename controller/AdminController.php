@@ -22,7 +22,7 @@ class AdminController extends BaseController{
 
 	function addCategory(){
 		if (isset($_REQUEST['inputCategory'])){
-			$result = $this->model->saveSection($_REQUEST['inputCategory']);
+			$result = $this->model->saveCategory($_REQUEST['inputCategory']);
 			if ($result){
 				return "Se agregó la seccion con exito";
 			}
@@ -31,7 +31,7 @@ class AdminController extends BaseController{
 			}
 		}
 	}
-	
+
 
 	function addBook(){
 
