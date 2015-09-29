@@ -11,7 +11,6 @@ class MainController extends BaseController{
 
 	function showHome(){
 		$this->view->show(ConfigApp::$ACTION_DEFAULT);
-		return $this->model->getBooks();
 
 	}
 
