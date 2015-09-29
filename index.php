@@ -14,7 +14,8 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];
 
 	if ($actionReq == ConfigApp::$ACTION_CATALOG_ADD) {
-		echo $mainController->addBook();
+		$adminController = new AdminController();
+		echo $adminController->addBook();
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_SECTION){
@@ -26,19 +27,22 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		$adminController = new AdminController();
 		echo $adminController->getContent($actionReq);
 	}
-	
-	if ($actionReq == ConfigApp::$ACTION_DEFAULT ||
-		$actionReq == ConfigApp::$ACTION_FAQS ||
+
+	if ($actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_LOGIN ||
 		$actionReq == ConfigApp::$ACTION_SECTION) {
 			echo $mainController->getContent($actionReq);
 	}
-	
+	if ($actionReq == ConfigApp::$ACTION_DEFAULT){
+		$adminController = new adminController();
+		echo $adminController->getBooks($actionReq);
+	}
+
 	if ($actionReq == ConfigApp::$ACTION_SECTION_ADD){
 		$adminController = new AdminController();
 		echo $adminController->addSection();
 	}
-	
+
 	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
 		$thePolice = new ThePolice();
 		echo $thePolice->login();
