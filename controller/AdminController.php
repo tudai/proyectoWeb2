@@ -9,8 +9,8 @@ class AdminController extends BaseController{
 	}
 
 	function addSection(){
-		if (isset($_REQUEST['bookSectSelector'])){
-			$result = $this->model->saveSection($_REQUEST['bookSectSelector']);
+		if (isset($_REQUEST['inputSection'])){
+			$result = $this->model->saveSection($_REQUEST['inputSection']);
 			if ($result){
 				return "Se agregó la seccion con exito";
 			}
@@ -20,6 +20,18 @@ class AdminController extends BaseController{
 		}
 	}
 
+	function addCategory(){
+		if (isset($_REQUEST['inputCategory'])){
+			$result = $this->model->saveSection($_REQUEST['inputCategory']);
+			if ($result){
+				return "Se agregó la seccion con exito";
+			}
+			else {
+				return "Se ha encontrado un problema al agregar la seccion";
+			}
+		}
+	}
+	
 
 	function addBook(){
 

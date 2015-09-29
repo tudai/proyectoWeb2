@@ -43,6 +43,11 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		echo $adminController->addSection();
 	}
 
+	if ($actionReq == ConfigApp::$ACTION_CATEGORY_ADD){
+		$adminController = new AdminController();
+		echo $adminController->addCategory();
+	}
+	
 	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
 		$thePolice = new ThePolice();
 		echo $thePolice->login();
