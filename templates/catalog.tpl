@@ -16,13 +16,24 @@
         </div>
       </div>
       <div class="col-md-12">
-
         <div class="col-md-6">
-          <label for="select">Elige categoria</label>
+          <label for="select">Elige sección</label>
           {if $sections}
           <select class="form-control" name="bookSection">
            {foreach $sections as $section}
             <option id="{$section['id_seccion']}">{$section['nombre_seccion']}</option>
+            {/foreach}
+          </select>
+          {/if}
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <label for="select">Elige categoria</label>
+          {if $category}
+          <select class="form-control" name="bookCategory">
+           {foreach $categories as $category}
+            <option id="{$categoria['id_categoria']}">{$categoria['nombre_categoria']}</option>
             {/foreach}
           </select>
           {/if}

@@ -48,13 +48,19 @@ class BaseModel {
     return $query->fetchAll();
   }
 
+  function getCategories(){
+    $query = $this->db->prepare("SELECT id_categoria, nombre_categoria FROM categoria");
+    $query->execute();
+    return $query->fetchAll();
+  }
+
   function saveSection($section){
     $query = $this->db->prepare('INSERT INTO seccion(nombre_seccion)
                                  VALUES (:section)');
     $query->bindParam(':section', $section);
     return $query->execute();
   }
-  
+
   function saveCategory($category){
   	$query = $this->db->prepare('INSERT INTO categoria(nombre_categoria)
                                  VALUES (:categoria)');
@@ -73,8 +79,15 @@ class BaseModel {
     $query->bindParam(':img', $path['image_path']);
     $query->bindParam(':url', $path['book_path']);
     $query->bindParam(':section', $book->section);
+    $id_libro = $this->db->lastInsertId();
+    if ($query->execute()){
+      $query = $this->db->prepare('INSERT INTO categoria_libro(id_fk_libro, id_fk_categoria)
+                                    VALUES(:idbook, :idcategory)');
 
-    return $query->execute();
+      $query->bindParam(':idbook', $id_libro);
+      $query->bindParam(':idcategory', $book->category);
+      return $query->execute();
+    }
 
   }
 

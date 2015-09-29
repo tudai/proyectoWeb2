@@ -40,6 +40,7 @@ class AdminController extends BaseController{
 			$book->name = $_REQUEST['bookName'];
 			$book->author = $_REQUEST['bookAuthor'];
 			$book->section = $_REQUEST['bookSection'];
+			$book->category = $_REQUEST['bookCategory'];
 
 			$result = $this->model->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
 			if ($result){
@@ -54,9 +55,11 @@ class AdminController extends BaseController{
 
 	function getContent($content){
 		$sections = $this->model->getSections();
-		$arr = array('sections' => $sections);
+		$categories = $this->model->getCategories();
+		$arr = array('sections' => $sections, 'categories' => $categories);
 		return $this->view->getHTML($content, null, $arr);
 	}
+
 
 	function getBooks($content){
 		$books = $this->model->getBooks();
