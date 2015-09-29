@@ -9,5 +9,7 @@ class ConfigApp {
   public static $ACTION_FAQS = 'faq';
   public static $ACTION_SECTION = 'section';
   public static $ACTION_SECTION_ADD = 'add-section';
+  public static $ACTION_LOGIN = 'login';
+  public static $ACTION_LOGIN_EXEC = 'execute-login';
   
 }

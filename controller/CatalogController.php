@@ -8,9 +8,7 @@ class CatalogController extends BaseController{
 	}
 
 	function getContent($content){
-		$sections = $this->model->getSections();
-		$arr = array('sections' => $sections);
-		return $this->view->getHTML($content, null, $arr);
+		
 	}
 
 }

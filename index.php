@@ -1,13 +1,13 @@
 <?php
 
-include_once 'config/config_app.php';
-include_once 'controller/MainController.php';
+require_once 'config/config_app.php';
+require_once 'controller/MainController.php';
 require_once 'controller/CatalogController.php';
-
+require_once 'controller/AdminController.php';
+require_once 'controller/ThePolice.php';
 
 
 $mainController = new MainController();
-$catalogController = new CatalogController();
 
 
 if (isset($_REQUEST[ConfigApp::$ACTION])){
@@ -18,22 +18,30 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_SECTION){
-		echo $mainController->addSection();
+		$adminController = new AdminController();
+		echo $adminController->addSection();
 
 	}
 	if ($actionReq == ConfigApp::$ACTION_CATALOG){
-		echo $catalogController->getContent($actionReq);
+		$adminController = new AdminController();
+		echo $adminController->getContent($actionReq);
 	}
 	
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT ||
 		$actionReq == ConfigApp::$ACTION_FAQS ||
+		$actionReq == ConfigApp::$ACTION_LOGIN ||
 		$actionReq == ConfigApp::$ACTION_SECTION) {
-
 			echo $mainController->getContent($actionReq);
 	}
 	
 	if ($actionReq == ConfigApp::$ACTION_SECTION_ADD){
-		echo $mainController->addSection();
+		$adminController = new AdminController();
+		echo $adminController->addSection();
+	}
+	
+	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
+		$thePolice = new ThePolice();
+		echo $thePolice->login();
 	}
 
 } else {

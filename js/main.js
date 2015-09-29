@@ -41,11 +41,11 @@ function sendBookToServer(path, target){
     });
 }
 
-function sendContentToServer(path, target){
+function sendContentToServer(path, target, FormID){
 	$.ajax({
 		type: "POST",
 		url: getSiteURL() + "index.php?action="+path,
-		data: $('#uploadSection').serialize(),
+		data: $('#'+FormID).serialize(),
 		success: function(data){
 			alert(data);
 		},
@@ -70,9 +70,13 @@ $(function(){
 
   $('body').on('click', '#uploadSection button', function(event){
 	  event.preventDefault();
-	  sendContentToServer($(this).attr('data-action'), 'content');
+	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadSection');
   })
 
+  $('body').on('click', '#loginForm button', function(event){
+	  event.preventDefault();
+	  sendContentToServer($(this).attr('data-action'), 'content', 'loginForm');
+  })
 
 
 })

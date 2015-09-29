@@ -1,6 +1,9 @@
 <?php
 
-class BaseController{
+require_once 'model/BaseModel.php';
+require_once 'view/MainView.php';
+
+abstract class BaseController{
 
 	protected $model;
 	protected $view;
@@ -10,8 +13,6 @@ class BaseController{
 		$this->view = new MainView();
 	}
 
-	function getContent($content){
-
-	}
+	abstract function getContent($content);
 
 }

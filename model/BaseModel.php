@@ -43,9 +43,9 @@ class BaseModel {
   }
 
   function getSections(){
-    $consulta = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
-    $consulta->execute();
-    return $consulta->fetchAll();
+    $query = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");
+    $query->execute();
+    return $query->fetchAll();
   }
 
   function saveSection($section){
@@ -56,20 +56,27 @@ class BaseModel {
   }
 
   function saveBook($book, $fileBook, $fileImage){
-	$ruta = array();
-    $ruta = $this->uploadBook($fileBook, $fileImage);
+	$path = array();
+    $path = $this->uploadBook($fileBook, $fileImage);
 
-    $consulta = $this->db->prepare('INSERT INTO libro(nombre_libro, autor_libro, img_libro, url_libro, seccion_id_seccion)
+    $query = $this->db->prepare('INSERT INTO libro(nombre_libro, autor_libro, img_libro, url_libro, seccion_id_seccion)
                                     VALUES(:name, :author, :img, :url, :section)');
-    $consulta->bindParam(':name', $book->name);
-    $consulta->bindParam(':author', $book->author);
-    $consulta->bindParam(':img', $ruta['image_path']);
-    $consulta->bindParam(':url', $ruta['book_path']);
-    $consulta->bindParam(':section', $book->section);
+    $query->bindParam(':name', $book->name);
+    $query->bindParam(':author', $book->author);
+    $query->bindParam(':img', $path['image_path']);
+    $query->bindParam(':url', $path['book_path']);
+    $query->bindParam(':section', $book->section);
 
-    return $consulta->execute();
+    return $query->execute();
 
   }
 
+  function getUserCredentials($username, $password){
+  	$query = $this->db->prepare('SELECT * FROM usuarios WHERE username = :username  AND password = :password');
+  	$query->bindParam(':username', $username);
+  	$query->bindParam(':password', md5($password));
+  	$query->execute();
+  	return $query->fetchAll();
+  }
 }
 ?>
