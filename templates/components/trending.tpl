@@ -1,9 +1,9 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
+<div>
+  <div class="col-md-12">
     {if $libros}
       {foreach $libros as $libro}
-      <div class="thumbnail">
-        <img id="{$libro['img_libro']}" src="{$libro['img_libro']}" alt="imagen-$libro['img_libro']">
+      <div class="thumbnail col-md-2">
+        <img class="img-responsive" id="{$libro['img_libro']}" src="{$libro['img_libro']}" alt="imagen-$libro['img_libro']">
         <div class="caption">
           <h3>{$libro['nombre_libro']}</h3>
           <p>{$libro['autor_libro']}</p>
