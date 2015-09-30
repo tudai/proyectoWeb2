@@ -13,7 +13,7 @@ $thePolice = new ThePolice();
 if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];
 
-	if ($actionReq == ConfigApp::$ACTION_CATALOG_ADD) {
+	if ($actionReq == ConfigApp::$ACTION_BOOK_ADD) {
 		$adminController = new AdminController();
 		echo $adminController->addBook();
 	}
@@ -23,15 +23,15 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		echo $adminController->addSection();
 
 	}
-	if ($actionReq == ConfigApp::$ACTION_CATALOG){
+	if ($actionReq == ConfigApp::$ACTION_BOOK ||
+		$actionReq == ConfigApp::$ACTION_CATALOG){
 		$adminController = new AdminController();
 		echo $adminController->getContent($actionReq);
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_LOGIN ||
-		$actionReq == ConfigApp::$ACTION_SECTION ||
-		$actionReq == ConfigApp::$ACTION_CATEGORY) {
+		$actionReq == ConfigApp::$ACTION_SECTION) {
 			echo $mainController->getContent($actionReq);
 	}
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT){
@@ -44,10 +44,6 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		echo $adminController->addSection();
 	}
 
-	if ($actionReq == ConfigApp::$ACTION_CATEGORY_ADD){
-		$adminController = new AdminController();
-		echo $adminController->addCategory();
-	}
 
 	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
 		 $thePolice->login();

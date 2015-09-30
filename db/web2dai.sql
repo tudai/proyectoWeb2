@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 29-09-2015 a las 03:27:57
--- Versión del servidor: 5.5.44-0ubuntu0.14.04.1
--- Versión de PHP: 5.5.9-1ubuntu4.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-09-2015 a las 16:31:40
+-- Versión del servidor: 5.6.25
+-- Versión de PHP: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `web2dai`
@@ -23,53 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
---
-
-CREATE TABLE IF NOT EXISTS `categoria` (
-  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_categoria` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria_libro`
---
-
-CREATE TABLE IF NOT EXISTS `categoria_libro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_fk_libro` int(11) NOT NULL,
-  `id_fk_categoria` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_fk_libro` (`id_fk_libro`),
-  KEY `id_fk_categoria` (`id_fk_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `libro`
 --
 
 CREATE TABLE IF NOT EXISTS `libro` (
-  `id_libro` int(11) NOT NULL AUTO_INCREMENT,
+  `id_libro` int(11) NOT NULL,
   `nombre_libro` varchar(200) NOT NULL,
   `autor_libro` varchar(200) NOT NULL,
   `img_libro` varchar(300) NOT NULL,
   `url_libro` varchar(200) NOT NULL,
-  `seccion_id_seccion` int(11) NOT NULL,
-  PRIMARY KEY (`id_libro`),
-  KEY `fk_libro_seccion_idx` (`seccion_id_seccion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Volcado de datos para la tabla `libro`
---
-
-INSERT INTO `libro` (`id_libro`, `nombre_libro`, `autor_libro`, `img_libro`, `url_libro`, `seccion_id_seccion`) VALUES
-(4, 'asdasd', 'asdasd', 'uploaded/books//5609ab544684aRepresentacionDeNumerosEnteros.pdf/10 años amu.jpg', 'uploaded/books//5609ab544684aRepresentacionDeNumerosEnteros.pdf/RepresentacionDeNumerosEnteros.pdf', 3);
+  `seccion_id_seccion` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -78,24 +42,17 @@ INSERT INTO `libro` (`id_libro`, `nombre_libro`, `autor_libro`, `img_libro`, `ur
 --
 
 CREATE TABLE IF NOT EXISTS `seccion` (
-  `id_seccion` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_seccion` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_seccion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `id_seccion` int(11) NOT NULL,
+  `nombre_seccion` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `seccion`
 --
 
 INSERT INTO `seccion` (`id_seccion`, `nombre_seccion`) VALUES
-(1, 'novela'),
-(2, 'conocimiento'),
-(3, 'ni'),
-(4, 'libro re copado'),
-(5, 'libro nuevo'),
-(6, 'ttt'),
-(7, 'asd'),
-(8, 'lala');
+(9, 'Novela'),
+(11, 'Conocimiento General');
 
 -- --------------------------------------------------------
 
@@ -104,30 +61,64 @@ INSERT INTO `seccion` (`id_seccion`, `nombre_seccion`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `role` varchar(10) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `role` varchar(10) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_user`, `username`, `password`, `role`) VALUES
-(1, 'maikndawer', '9d0682ff6278a656e0d9cca38f47c446', 'admin');
+(1, 'vicky', 'e10adc3949ba59abbe56e057f20f883e', 'admin');
 
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `libro`
+--
+ALTER TABLE `libro`
+  ADD PRIMARY KEY (`id_libro`),
+  ADD KEY `fk_libro_seccion_idx` (`seccion_id_seccion`);
+
+--
+-- Indices de la tabla `seccion`
+--
+ALTER TABLE `seccion`
+  ADD PRIMARY KEY (`id_seccion`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `libro`
+--
+ALTER TABLE `libro`
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `seccion`
+--
+ALTER TABLE `seccion`
+  MODIFY `id_seccion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `categoria_libro`
---
-ALTER TABLE `categoria_libro`
-  ADD CONSTRAINT `id_fk_categoria` FOREIGN KEY (`id_fk_categoria`) REFERENCES `categoria` (`id_categoria`),
-  ADD CONSTRAINT `id_fk_libro` FOREIGN KEY (`id_fk_libro`) REFERENCES `libro` (`id_libro`);
 
 --
 -- Filtros para la tabla `libro`

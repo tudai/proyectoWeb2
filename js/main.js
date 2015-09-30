@@ -24,7 +24,6 @@ function loadSiteComponent(path, target){
 function sendBookToServer(path, target){
     var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
-		datos.append('bookCategory', $('select[name="bookCategory"] option:selected').attr('id'));
 
     $.ajax({
       type: "POST",
@@ -58,7 +57,7 @@ function sendContentToServer(path, target, FormID){
 
 
 $(function(){
-	
+
   $('nav li > a').click(function(event){
 	  event.preventDefault();
   	loadSiteComponent(this.id, 'content');

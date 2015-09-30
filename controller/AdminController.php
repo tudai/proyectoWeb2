@@ -20,18 +20,6 @@ class AdminController extends BaseController{
 		}
 	}
 
-	function addCategory(){
-		if (isset($_REQUEST['categoryInput'])){
-			$result = $this->model->saveCategory($_REQUEST['categoryInput']);
-			if ($result){
-				return "Se agregó la seccion con exito";
-			}
-			else {
-				return "Se ha encontrado un problema al agregar la seccion";
-			}
-		}
-	}
-
 
 	function addBook(){
 
@@ -40,7 +28,6 @@ class AdminController extends BaseController{
 			$book->name = $_REQUEST['bookName'];
 			$book->author = $_REQUEST['bookAuthor'];
 			$book->section = $_REQUEST['bookSection'];
-			$book->category = $_REQUEST['bookCategory'];
 
 			$result = $this->model->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
 			if ($result){
@@ -55,9 +42,7 @@ class AdminController extends BaseController{
 
 	function getContent($content){
 		$sections = $this->model->getSections();
-		$categories = $this->model->getCategories();
-
-		$arr = array('sections' => $sections, 'categories' => $categories);
+		$arr = array('sections' => $sections);
 		return $this->view->getHTML($content, null, $arr);
 	}
 
