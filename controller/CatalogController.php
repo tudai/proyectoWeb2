@@ -8,7 +8,13 @@ class CatalogController extends BaseController{
 	}
 
 	function getContent($content){
-		
+
+	}
+
+	function getBookByID($content, $id){
+		$books = $this->model->getBookBySectionID($id);
+		$arr = array('books' => $books);
+		return $this->view->getHTML($content, null, $arr);
 	}
 
 }

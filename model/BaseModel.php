@@ -71,6 +71,13 @@ class BaseModel {
 
   }
 
+  function getBookBySectionID($id){
+    $query = $this->db->prepare('SELECT nombre_libro, autor_libro FROM libro WHERE id_seccion = :idsection');
+    $query->bindParam('idsection', $id);
+    $query->execute();
+    return $query->fetchAll();
+  }
+
   function getUserCredentials($username, $password){
   	$query = $this->db->prepare('SELECT * FROM usuarios WHERE username = :username  AND password = :password');
   	$query->bindParam(':username', $username);

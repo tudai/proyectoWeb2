@@ -21,6 +21,7 @@ function loadSiteComponent(path, target){
   })
 }
 
+
 function sendBookToServer(path, target){
     var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
