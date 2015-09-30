@@ -20,7 +20,7 @@ class MainView{
 	
 	function show($template, $arrayParam = null){
 		$this->assignObjectsToTemplate($arrayParam);
-		$this->smarty->display(ConfigApp::$VIEW_TEMPLATE_BASEPATH . $template .'.tpl');
+		$this->smarty->display(ConfigApp::$VIEW_TEMPLATE_BASEPATH . $template .ConfigApp::$VIEW_TPL_EXT);
 	}
 	
 	function getHTML($component, $middlePath = null, $paramsArray = null){

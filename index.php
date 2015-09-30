@@ -42,8 +42,7 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 			echo $mainController->getContent($actionReq);
 	}
 	if ($actionReq == ConfigApp::$ACTION_DEFAULT){
-		$adminController = new adminController();
-		echo $adminController->getBooks($actionReq);
+		echo $mainController->getBooksList($actionReq);
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_SECTION_ADD){
@@ -68,5 +67,5 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	}
 	
 } else {
-	$mainController->showHome();
+	echo $mainController->getHome();
 }
