@@ -78,5 +78,4 @@ class BaseModel {
   	$query->execute();
   	return $query->fetchAll();
   }
-}
 ?>
