@@ -52,4 +52,11 @@ class AdminController extends BaseController{
 		$arr = array('libros' => $books);
 		return $this->view->getHTML($content, null, $arr);
 	}
+
+	function login(){
+		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
+		$params[ConfigApp::$VIEW_NAV] = ConfigApp::$VIEW_COMPONENT_BASEPATH . ConfigApp::$VIEW_NAV_ADMIN . ConfigApp::$VIEW_TPL_EXT;
+		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
+	}
+	
 }

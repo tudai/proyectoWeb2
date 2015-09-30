@@ -13,7 +13,7 @@ function loadSiteComponent(path, target){
     url: getSiteURL() + 'index.php?action=' + path,
     dataType: 'html',
     success: function(data){
-      $('#'+target).html(data);
+      $(target).html(data);
     },
     error: function(){
       alert('Se produjo un erro de red. Charlale al admin para que lo arregle');
@@ -33,7 +33,6 @@ function sendBookToServer(path, target){
       contentType : false,
       processData : false,
       success: function(data){
-    	  console.log(data);
         alert(data);
       },
       error: function(){
@@ -42,13 +41,15 @@ function sendBookToServer(path, target){
     });
 }
 
-function sendContentToServer(path, target, FormID){
+function sendContentToServer(path, FormID, callback){
 	$.ajax({
 		type: "POST",
 		url: getSiteURL() + "index.php?action="+path,
 		data: $('#'+FormID).serialize(),
 		success: function(data){
-			alert(data);
+			if( typeof callback !== 'undefined' && jQuery.isFunction( callback ) ){
+				callback(data);
+			}
 		},
 		error: function( jqXHR, textStatus, errorThrown){
 			alert(textStatus);
@@ -61,7 +62,7 @@ $(function(){
 
   $('nav li > a').click(function(event){
 	  event.preventDefault();
-  	loadSiteComponent(this.id, 'content');
+  	loadSiteComponent(this.id, '#content');
   })
 
 
@@ -72,15 +73,17 @@ $(function(){
 
   $('body').on('click', '#uploadSection button', function(event){
 	  event.preventDefault();
-	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadSection');
+	  sendContentToServer($(this).attr('data-action'), 'uploadSection', function(data){
+		$('#content').html(data);
+	  });
   })
 
-	$('body').on('click', '.list-group-item', function(event){
+  $('body').on('click', '.list-group-item', function(event){
 		event.preventDefault();
-		loadSiteComponent('booksList&id='+ this.id, 'bookList');
+		loadSiteComponent('booksList&id='+ this.id, '#bookList');
 		$(this).addClass('active');
 		$(this).siblings().removeClass('active');
-		})
+  })
 
 
 
@@ -89,7 +92,15 @@ $(function(){
    */
   $('body').on('click', '#loginForm button', function(event){
 	  event.preventDefault();
-	  sendContentToServer($(this).attr('data-action'), 'content', 'loginForm');
+	  sendContentToServer($(this).attr('data-action'), 'loginForm', function(data){
+		  $('body').html(data);
+	  });
   })
+  
+  $('body').on('click', '#logout', function(event){
+	  event.preventDefault();
+	  loadSiteComponent('logout', 'body');
+  	})
+  
 
 })

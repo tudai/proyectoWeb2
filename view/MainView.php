@@ -17,37 +17,19 @@ class MainView{
 
 		$this->smarty->caching = false;
 	}
-/*
-	function show($component = null){
-		if ($component == null)
-			$this->smarty->assign('component', $component);
-		else
-			$this->smarty->assign('component', $this->tpl_dir . $this->component. '.tpl');
-
-		$this->smarty->display($this->template);
-	}
-*/
 	
-	function show($arrayParam = null){
-		$arrayParam['nav'] = $this->nav;
-		if (isset($arrayParam[MainView::$VIEW_CONTENT]))
-			$arrayParam[MainView::$VIEW_CONTENT] = $this->tpl_dir . $this->component . '.tpl';
-		else{
-			$content = $arrayParam[MainView::$VIEW_CONTENT];
-			$arrayParam[MainView::$VIEW_CONTENT] = $this->tpl_dir . $content . '.tpl';
-		}
+	function show($template, $arrayParam = null){
 		$this->assignObjectsToTemplate($arrayParam);
-		$this->smarty->display($this->template);
+		$this->smarty->display(ConfigApp::$VIEW_TEMPLATE_BASEPATH . $template .'.tpl');
 	}
 	
 	function getHTML($component, $middlePath = null, $paramsArray = null){
 		if ($middlePath == null)
-			$path = $this->tpl_dir . $component . '.tpl';
+			$path = ConfigApp::$VIEW_TEMPLATE_BASEPATH . $component . ConfigApp::$VIEW_TPL_EXT;
 		else
-			$path = $this->tpl_dir . $middlePath . $component . '.tpl';
+			$path = ConfigApp::$VIEW_TEMPLATE_BASEPATH . $middlePath . $component . ConfigApp::$VIEW_TPL_EXT;
 
-		$paramsArray['nav'] = $this->nav;
-		$this->assignObjectsToTemplate($paramsArray);		
+		$this->assignObjectsToTemplate($paramsArray);	
 		return $this->smarty->fetch($path);
 	}
 

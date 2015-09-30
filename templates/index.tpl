@@ -1,6 +1,6 @@
 {include file="components/header.tpl"}
 
-{include file=$nav}
+{include file="components/nav.tpl"}
 <div id="content">
 	{include file=$content}
 </div>

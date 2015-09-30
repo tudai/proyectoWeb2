@@ -57,6 +57,16 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		 echo $_SESSION[ThePolice::$ACTIVE_USER]['id'];
 	}
 
+	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
+		$thePolice->login();
+		echo $mainController->getHome();
+	}
+	
+	if ($actionReq == ConfigApp::$ACTION_LOGOUT_EXEC){
+		$thePolice->logout();
+		echo $mainController->getHome();
+	}
+	
 } else {
 	$mainController->showHome();
 }

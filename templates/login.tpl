@@ -9,7 +9,7 @@
 	    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
 	  </div>
 	
-	  <button data-action="execute-login" type="submit" class="btn btn-default">Submit</button>
+	  <button data-action="loginIn" type="submit" class="btn btn-default">Submit</button>
 	</form>
 
 

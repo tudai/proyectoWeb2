@@ -14,14 +14,19 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    	<ul class="nav navbar-nav">
 			    		<li><a id="home" href="#">Home</a></li>
-			        <li><a id="faq" href="#">FAQ</a></li>
-							<li><a id="catalog" href="#">Catálogo</a></li>
-			        <li><a id="register" href="#">Registro</a></li>
-							<li><a id="book" href="#">Agregar Libro</a></li>
-							<li><a id="section" href="#">Seccion</a></li>
+						<li><a id="catalog" href="#">Catálogo</a></li>
+			        	<li><a id="faq" href="#">FAQ</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-			      		<li><a id="login" href="#">Login</a></li>
+			      	{if isset($smarty.session.activeUser)}
+			      		<li><a id="register" href="#">Registro</a></li>
+						<li><a id="section" href="#">Seccion</a></li>
+						<li><a id="category" href="#">Categoria</a></li>
+						<li><a id="logout" href="#">Logout</a></li>
+					{else}
+						<li><a id="login" href="#">Login</a></li>
+					{/if}	
+			      		
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
