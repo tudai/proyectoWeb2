@@ -49,7 +49,7 @@ class AdminController extends BaseController{
 
 	function getBooks($content){
 		$books = $this->model->getBooks();
-		$arr = array('libros' => $books);
+		$arr = array('books' => $books);
 		return $this->view->getHTML($content, null, $arr);
 	}
 
@@ -58,5 +58,5 @@ class AdminController extends BaseController{
 		$params[ConfigApp::$VIEW_NAV] = ConfigApp::$VIEW_COMPONENT_BASEPATH . ConfigApp::$VIEW_NAV_ADMIN . ConfigApp::$VIEW_TPL_EXT;
 		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
-	
+
 }

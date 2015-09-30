@@ -1,12 +1,12 @@
 <div>
   <div class="col-md-12">
-    {if $libros}
-      {foreach $libros as $libro}
+    {if $books}
+      {foreach $books as $book}
       <div class="thumbnail col-md-2">
-        <img class="img-responsive" id="{$libro['img_libro']}" src="{$libro['img_libro']}" alt="imagen-$libro['img_libro']">
+        <img class="img-responsive" id="{$book['img_libro']}" src="{$book['img_libro']}" alt="imagen-$book['img_libro']">
         <div class="caption">
-          <h3>{$libro['nombre_libro']}</h3>
-          <p>{$libro['autor_libro']}</p>
+          <h3>{$book['nombre_libro']}</h3>
+          <p>{$book['autor_libro']}</p>
           <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> </p> -->
         </div>
       </div>
