@@ -18,12 +18,13 @@ function loadSiteComponent(path, target){
     error: function(){
       alert('Se produjo un erro de red. Charlale al admin para que lo arregle');
     }
-  })  
+  })
 }
 
 function sendBookToServer(path, target){
     var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
+		datos.append('bookCategory', $('select[name="bookCategory"] option:selected').attr('id'));
 
     $.ajax({
       type: "POST",
