@@ -79,13 +79,14 @@ class BaseModel {
     $query->bindParam(':img', $path['image_path']);
     $query->bindParam(':url', $path['book_path']);
     $query->bindParam(':section', $book->section);
-    $id_libro = $this->db->lastInsertId();
+    
     if ($query->execute()){
       $query = $this->db->prepare('INSERT INTO categoria_libro(id_fk_libro, id_fk_categoria)
                                     VALUES(:idbook, :idcategory)');
-
+      $id_libro = $this->db->lastInsertId();
       $query->bindParam(':idbook', $id_libro);
       $query->bindParam(':idcategory', $book->category);
+
       return $query->execute();
     }
 
