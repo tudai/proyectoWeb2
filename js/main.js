@@ -58,6 +58,7 @@ function sendContentToServer(path, target, FormID){
 
 
 $(function(){
+	
   $('nav li > a').click(function(event){
 	  event.preventDefault();
   	loadSiteComponent(this.id, 'content');
@@ -85,6 +86,5 @@ $(function(){
 	  event.preventDefault();
 	  sendContentToServer($(this).attr('data-action'), 'content', 'loginForm');
   })
-
 
 })

@@ -7,7 +7,7 @@ class MainView{
  	private $tpl_dir = 'templates/';
     private $template = 'templates/index.tpl';
     private $component = 'home';
-    private $nav = 'templates/nav.tpl';
+    private $nav = 'templates/components/nav.tpl';
 
     public static $VIEW_CONTENT = 'content';
     
