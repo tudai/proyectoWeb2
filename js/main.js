@@ -75,17 +75,12 @@ $(function(){
 	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadSection');
   })
 
-	$('body').on('click', '.list-group-item', '#booksList', function(event){
+	$('body').on('click', '.list-group-item', function(event){
 		event.preventDefault();
-		loadSiteComponent('catalog_id?'+ this.id);
+		loadSiteComponent('booksList&id='+ this.id, 'bookList');
 		$(this).addClass('active');
 		$(this).siblings().removeClass('active');
 		})
-
-	// $('body').on('click', '#booksList', function(event){
-	// 	event.preventDefault();
-	// 	loadSiteComponent('components/booksList'+this.id);
-	// })
 
 
 

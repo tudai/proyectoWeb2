@@ -30,7 +30,10 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	}
 	if($actionReq == ConfigApp::$ACTION_GET_CATALOG_BY_ID){
 		$catalogController = new catalogController();
-		echo $catalogController->getBookByID($actionReq);
+		if (isset($_REQUEST['id'])){
+			$id = $_REQUEST['id'];
+			echo $catalogController->getBookByID($actionReq, $id);
+		}
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_FAQS ||

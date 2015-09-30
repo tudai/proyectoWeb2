@@ -10,7 +10,7 @@
       </p>
     {/if}
   </ul>
-  <div class="col-md-8" id="booksList">
+  <div class="col-md-8" id="bookList">
 
   </div>
 </div>

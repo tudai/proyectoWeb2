@@ -14,5 +14,5 @@ class ConfigApp {
   public static $ACTION_LOGIN_EXEC = 'execute-login';
   public static $ACTION_CATEGORY = 'category';
   public static $ACTION_CATEGORY_ADD = 'add-category';
-  public static $ACTION_GET_CATALOG_BY_ID = 'catalog_id';
+  public static $ACTION_GET_CATALOG_BY_ID = 'booksList';
 }
