@@ -28,10 +28,10 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		$adminController = new AdminController();
 		echo $adminController->getContent($actionReq);
 	}
-	// if($actionReq == ConfigApp::$ACTION_GET_CATALOG_BY_ID){
-	// 	$catalogController = new catalogController();
-	// 	//echo $catalogController->getBookByID();
-	// }
+	if($actionReq == ConfigApp::$ACTION_GET_CATALOG_BY_ID){
+		$catalogController = new catalogController();
+		echo $catalogController->getBookByID($actionReq);
+	}
 
 	if ($actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_LOGIN ||

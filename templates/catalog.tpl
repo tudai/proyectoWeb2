@@ -2,7 +2,7 @@
   <ul class="list-group col-md-4">
     {if $sections}
       {foreach $sections as $section}
-        <li class="list-group-item" id="{$section['id_seccion']}">{$section['nombre_seccion']}</li>
+        <a href="#" class="list-group-item" id="{$section['id_seccion']}">{$section['nombre_seccion']}</a>
       {/foreach}
     {else}
       <p>

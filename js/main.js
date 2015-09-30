@@ -75,10 +75,20 @@ $(function(){
 	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadSection');
   })
 
-  $('body').on('click', '#uploadCategory button', function(event){
-	  event.preventDefault();
-	  sendContentToServer($(this).attr('data-action'), 'content', 'uploadCategory');
-  })
+	$('body').on('click', '.list-group-item', '#booksList', function(event){
+		event.preventDefault();
+		loadSiteComponent('catalog_id?'+ this.id);
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		})
+
+	// $('body').on('click', '#booksList', function(event){
+	// 	event.preventDefault();
+	// 	loadSiteComponent('components/booksList'+this.id);
+	// })
+
+
+
   /*
    * Se envía el contenido del formulario de login.
    */
