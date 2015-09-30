@@ -8,7 +8,7 @@ require_once 'controller/ThePolice.php';
 
 
 $mainController = new MainController();
-
+$thePolice = new ThePolice();
 
 if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];
@@ -50,8 +50,8 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 	}
 
 	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
-		$thePolice = new ThePolice();
-		echo $thePolice->login();
+		 $thePolice->login();
+		 echo $_SESSION[ThePolice::$ACTIVE_USER]['id'];
 	}
 
 } else {

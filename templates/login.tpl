@@ -6,8 +6,12 @@
   </div>
   <div class="form-group">
     <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" name="password" id="inputs" placeholder="Password">
+    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password">
   </div>
 
   <button data-action="execute-login" type="submit" class="btn btn-default">Submit</button>
 </form>
+
+  {$smarty.session.activeUser}
+  {$smarty.server.SERVER_NAME}
+	{$smarty.get.page}

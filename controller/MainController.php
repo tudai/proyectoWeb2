@@ -1,6 +1,7 @@
 <?php
 
 require_once 'BaseController.php';
+require_once 'view/MainView.php';
 
 class MainController extends BaseController{
 
@@ -10,7 +11,8 @@ class MainController extends BaseController{
 	}
 
 	function showHome(){
-		$this->view->show(ConfigApp::$ACTION_DEFAULT);
+		$data[MainView::$VIEW_CONTENT] = ConfigApp::$ACTION_DEFAULT;
+		$this->view->show($data);
 
 	}
 

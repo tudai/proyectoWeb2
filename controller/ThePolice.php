@@ -11,11 +11,11 @@ class ThePolice{
 	
 	private $model;
 	
-	private static $ACTIVE_USER = 'activeUser';
+	public static $ACTIVE_USER = 'activeUser';
 	
 	function __construct(){
 		$this->model = new BaseModel();
-		
+		session_start();
 	}
 	
 	function login(){
@@ -25,7 +25,7 @@ class ThePolice{
 			$userTemp = $this->model->getUserCredentials($username, $password);
 			
 			if (count($userTemp)>0){
-				session_start();
+				
 				$user['username'] = $userTemp[0]['username'];
 				$user['role'] = $userTemp[0]['role'];
 				$user['id'] = session_id();
