@@ -56,6 +56,7 @@ class AdminController extends BaseController{
 	function getContent($content){
 		$sections = $this->model->getSections();
 		$categories = $this->model->getCategories();
+
 		$arr = array('sections' => $sections, 'categories' => $categories);
 		return $this->view->getHTML($content, null, $arr);
 	}
