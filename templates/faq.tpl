@@ -19,6 +19,12 @@
 	        Es lo más aconsejable, pero se pueden leer en multitud de dispositivos: ordenadores, tablets, móviles…
 	      </div>
 	    </div>
+			<div class="panel panel-default">
+	      <div class="panel-heading">Tengo un lector nuevo, ¿cómo puedo leer estos libros en él?</div>
+	      <div class="panel-body">
+	        En primer lugar recomendamos buscar en internet, hay infinidad de páginas sobre lectores electrónicos donde puedes encontrar mucha ayuda específica para casi cualquier modelo de lector. Si no consigues esa ayuda en otros lugares más especializados de internet, quizá la comunidad pueda ayudarte.
+	      </div>
+	    </div>
 	    <div class="panel panel-default">
 	      <div class="panel-heading">Mi eReader no lee el formato ePub, ¿cómo puedo leer esos libros?</div>
 	      <div class="panel-body">
