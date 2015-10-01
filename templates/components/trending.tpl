@@ -1,4 +1,5 @@
 <div>
+	<h3>Últimos libros agregados</h3>
 	<div class="col-md-12">
 	{if $books}
 		{foreach $books as $book}
