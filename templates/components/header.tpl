@@ -10,6 +10,6 @@
 		<div class="container">
 			<div class="row">
 				<header>
-						<img src="images/header.jpg" class="img-responsive" alt="libros" />
+						<img src="images/header.jpg" class="img-responsive" alt="libros" id="img-header"/>
 				</header>
-			</div>	
+			</div>

@@ -49,22 +49,22 @@ class AdminController extends BaseController{
 	function getBooksForTable($content){
 		$books = $this->model->getBooksAndSections();
 		$categories = $this->model->getSections();
-		$listOfBooks = array();
+		$arreglo = array();
 		foreach ($books as $book ) {
-			$newBook = new stdClass();
-			$newBook->nombre_libro = $book['nombre_libro'];
-			$newBook->autor_libro = $book['autor_libro'];
+			$listOfBooks = [
+				'nombre_libro' =>$book['nombre_libro'],
+				'autor_libro' =>$book['autor_libro'],
+				'seccion_id_seccion' => ''
+			];
 			foreach($categories as $cat) {
 				if ($book['seccion_id_seccion'] == $cat['id_seccion']){
-					$newBook->seccion_id_seccion = $cat['nombre_seccion'];
+					$listOfBooks['seccion_id_seccion'] = $cat['nombre_seccion'];
 				}
 			}
-			$arreglo[]=$newBook;
-			array_push ($listOfBooks, $arreglo);
-		}
 
-		//return json_encode($listOfBooks);
-	 	$arr = array('books' => $listOfBooks);//no estaria pasando nada con esto. Si hago lo anterior me lo da bien
+			array_push ($arreglo, $listOfBooks);
+		}
+	 	$arr = array('books' => $arreglo);//no estaria pasando nada con esto. Si hago lo anterior me lo da bien
 		return $this->view->getHTML($content, null, $arr);
 
 	}

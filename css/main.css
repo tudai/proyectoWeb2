@@ -18,6 +18,15 @@
 	text-align: center;
 }
 
-#slider{
-	
+#img-header{
+	width: 100%;
+}
+
+.thmb-home{
+	height: 405px;
+	margin: 5px;
+}
+
+.img-home{
+	height: 262px;
 }
