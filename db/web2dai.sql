@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2015 a las 00:23:36
+-- Tiempo de generación: 01-10-2015 a las 22:52:51
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `libro` (
   `img_libro` varchar(300) NOT NULL,
   `url_libro` varchar(200) NOT NULL,
   `seccion_id_seccion` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `libro`
@@ -43,7 +43,11 @@ INSERT INTO `libro` (`id_libro`, `nombre_libro`, `autor_libro`, `img_libro`, `ur
 (1, 'El fin de la eternidad', 'Isaac Asimov', 'uploaded/books//560c21ab8e219El fin de la eternidad - Isaac Asimov.epub/cover.jpg', 'uploaded/books//560c21ab8e219El fin de la eternidad - Isaac Asimov.epub/El fin de la eternidad - Isaac Asimov.epub', 9),
 (2, 'Trilogia Los juegos de Hambre', 'Suzanne Collins', 'uploaded/books//560c54c82a787Trilogia Los juegos del hambre - Suzanne Collins (4).epub/cover.jpg', 'uploaded/books//560c54c82a787Trilogia Los juegos del hambre - Suzanne Collins (4).epub/Trilogia Los juegos del hambre - Suzanne Collins (4).epub', 9),
 (3, 'El nuevo manifiesto de la Web 2.0', 'Toni Martin-Avila', 'uploaded/books//560c55220443eEl-nuevo-Manifiesto-de-la-web-20.pdf/cover.jpg', 'uploaded/books//560c55220443eEl-nuevo-Manifiesto-de-la-web-20.pdf/El-nuevo-Manifiesto-de-la-web-20.pdf', 11),
-(4, 'Juego de tronos', 'George R. R. Martin', 'uploaded/books//560c554c0a1edJuego de tronos - George R. R. Martin (4).epub/cover.jpg', 'uploaded/books//560c554c0a1edJuego de tronos - George R. R. Martin (4).epub/Juego de tronos - George R. R. Martin (4).epub', 9);
+(4, 'Juego de tronos', 'George R. R. Martin', 'uploaded/books//560c554c0a1edJuego de tronos - George R. R. Martin (4).epub/cover.jpg', 'uploaded/books//560c554c0a1edJuego de tronos - George R. R. Martin (4).epub/Juego de tronos - George R. R. Martin (4).epub', 9),
+(25, 'El juego de Ender', 'Orson Scott Card', 'uploaded/books//560d9c761b4c701 - El juego de Ender - Orson Scott Card.epub/cover.jpg', 'uploaded/books//560d9c761b4c701 - El juego de Ender - Orson Scott Card.epub/01 - El juego de Ender - Orson Scott Card.epub', 9),
+(26, 'La voz de los Muertos', 'Orson Scott Card', 'uploaded/books//560d9c920647202 - La voz de los muertos - Orson Scott Card.epub/cover.jpg', 'uploaded/books//560d9c920647202 - La voz de los muertos - Orson Scott Card.epub/02 - La voz de los muertos - Orson Scott Card.epub', 9),
+(27, 'Ender el Xenocida', 'Orson Scott Card', 'uploaded/books//560d9cad8b64d03 - Ender el xenocida - Orson Scott Card.epub/cover.jpg', 'uploaded/books//560d9cad8b64d03 - Ender el xenocida - Orson Scott Card.epub/03 - Ender el xenocida - Orson Scott Card.epub', 9),
+(28, 'Inferno', 'Dan Brown', 'uploaded/books//560d9cdac2dbeInferno (Version Latina) - Dan Brown (4).epub/cover.jpg', 'uploaded/books//560d9cdac2dbeInferno (Version Latina) - Dan Brown (4).epub/Inferno (Version Latina) - Dan Brown (4).epub', 9);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `libro`
 --
 ALTER TABLE `libro`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `seccion`
 --
