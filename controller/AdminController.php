@@ -49,11 +49,25 @@ class AdminController extends BaseController{
 	function getBooksForTable($content){
 		$books = $this->model->getBooksAndSections();
 		$categories = $this->model->getSections();
-		foreach ($books as $value) {
-			$value['seccion_id_seccion'] = $categories[$value['id_seccion']];
+		foreach ($categories as $cat ) {
+			foreach($books as $book) {
+				$vari = $book['seccion_id_seccion'];
+				if ($vari == $cat['id_seccion']){
+					echo $book['seccion_id_seccion'] = $cat['nombre_seccion'], '</br>';
+					$arr = array('books' => $books); //no estaria pasando nada con esto. Si hago lo anterior me lo da bien
+				//	return $this->view->getHTML($content, null, $arr);
+				}
+			}
 		}
-		$arr = array('books' => $books);
-		return $this->view->getHTML($content, null, $arr);
+
+
+
+
+		// foreach ($books as $book ) {
+		// 	$book['seccion_id_seccion'] = $categories[$books['id_seccion']];
+		// }
+		//
+		//
 	}
 
 
