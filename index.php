@@ -35,6 +35,10 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 			echo $catalogController->getBookByID($actionReq, $id);
 		}
 	}
+	if ($actionReq == ConfigApp::$ACTION_ADMIN ){
+		$adminController = new AdminController();
+		echo $adminController->getBooksForTable($actionReq);
+	}
 
 	if ($actionReq == ConfigApp::$ACTION_FAQS ||
 		$actionReq == ConfigApp::$ACTION_LOGIN ||
@@ -60,12 +64,12 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		$thePolice->login();
 		echo $mainController->getHome();
 	}
-	
+
 	if ($actionReq == ConfigApp::$ACTION_LOGOUT_EXEC){
 		$thePolice->logout();
 		echo $mainController->getHome();
 	}
-	
+
 } else {
 	echo $mainController->getHome();
 }

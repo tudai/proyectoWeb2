@@ -46,6 +46,16 @@ class AdminController extends BaseController{
 		return $this->view->getHTML($content, null, $arr);
 	}
 
+	function getBooksForTable($content){
+		$books = $this->model->getBooksAndSections();
+		$categories = $this->model->getSections();
+		foreach ($books as $value) {
+			$value['seccion_id_seccion'] = $categories[$value['id_seccion']];
+		}
+		$arr = array('books' => $books);
+		return $this->view->getHTML($content, null, $arr);
+	}
+
 
 	function login(){
 		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;

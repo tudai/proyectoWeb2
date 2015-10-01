@@ -76,6 +76,11 @@ $(function(){
 	  });
   })
 
+	$('body').on('click', '.tableDB', function(event){
+		event.preventDefault();
+		loadSiteComponent('admin');
+	})
+
   $('body').on('click', '.list-group-item', function(event){
 		event.preventDefault();
 		loadSiteComponent('booksList&id='+ this.id, '#bookList');
