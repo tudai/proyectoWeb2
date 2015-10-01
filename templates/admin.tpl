@@ -1,6 +1,6 @@
-<div class="tableDB">
+<div class="tableDB table-responsive">
   {if $books}
-  <table class="table">
+  <table class="table table-bordered">
     <tr>
       <th>
         Nombre Libro

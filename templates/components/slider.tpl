@@ -8,15 +8,15 @@
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-     
+  <div class="carousel-inner" role="listbox" id="slider">
+    <div class="item active ">
+      <img src="images/slider/foto1.jpg" alt="Imagen slider" />
       <div class="carousel-caption">
         ...
       </div>
     </div>
     <div class="item">
-     
+      <img src="images/slider/foto2.jpg" alt="Imagen slider" />
       <div class="carousel-caption">
         ...
       </div>
