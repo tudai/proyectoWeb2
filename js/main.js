@@ -58,7 +58,6 @@ function sendContentToServer(path, FormID, callback){
 	})
 }
 
-
 $(function(){
 
   $('nav li > a').click(function(event){
@@ -116,6 +115,5 @@ $(function(){
 	  event.preventDefault();
 	  loadSiteComponent('logout', 'body');
   	})
-
 
 })

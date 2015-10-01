@@ -1,7 +1,6 @@
 
 	<section>
-	  <div >
-		{include file="components/slider.tpl"}
+	 <div >
 	  </div>
 	
 	  <div >
