@@ -37,7 +37,7 @@ class BaseModel {
   }
 
   function getBooks(){
-    $query = $this->db->prepare("SELECT nombre_libro, autor_libro, img_libro FROM libro");
+    $query = $this->db->prepare("SELECT * FROM libro");
     $query->execute();
     return $query->fetchAll();
   }
@@ -76,11 +76,6 @@ class BaseModel {
       return $query->fetchAll();
     }
 
-    function getBooksAndSections(){
-      $query = $this->db->prepare('SELECT nombre_libro, autor_libro, seccion_id_seccion FROM libro');
-      $query->execute();
-      return $query->fetchAll();
-    }
 
     function getUserCredentials($username, $password){
     	$query = $this->db->prepare('SELECT * FROM usuarios WHERE username = :username  AND password = :password');

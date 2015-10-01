@@ -47,7 +47,7 @@ class AdminController extends BaseController{
 	}
 
 	function getBooksForTable($content){
-		$books = $this->model->getBooksAndSections();
+		$books = $this->model->getBooks();
 		$categories = $this->model->getSections();
 		$arreglo = array();
 		foreach ($books as $book ) {
