@@ -22,6 +22,60 @@
 	width: 100%;
 }
 
+.img-home{
+	height: 262px;
+}
+
+.bookWrapper{
+	position:relative;
+	margin: 10px;
+	min-width: 17%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.bookWrapper img, .bookCaption{
+	width: 100%;
+	position: absolute;
+}
+
+.bookWrapper,
+.bookWrapper img, .bookCaption{
+	min-height:282px;
+} 
+
+.bookWrapper .bookCaption{
+	background: #000000;
+	opacity:0;	
+	transition:opacity 0.1s linear;
+	max-height:100%;
+	display: table;
+	text-align:center;
+}
+
+
+.bookWrapper .bookCaption div{
+	display:table-cell;
+	vertical-align:middle;
+	height: 100%;	
+}
+
+.bookWrapper .bookCaption span{
+	display: block;	
+	color: #cccccc;
+	font-weight:bold;
+	font-size: 20px;
+}
+
+.bookWrapper .bookCaption span:last-child{
+	color: #FFA500;
+}
+
+.bookWrapper .bookCaption:hover{
+	opacity: 0.8;
+}
+
+
 .thmb-home{
 	height: 405px;
 	margin: 5px;
@@ -30,3 +84,15 @@
 .img-home{
 	height: 262px;
 }
+
+.footer{
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	height: 60px;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #222;
+  border-radius: 4px;
+}
+

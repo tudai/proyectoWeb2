@@ -17,7 +17,7 @@
 			    </div>
 		  </div>
 		  <div class="form-group">
-		  	<div class="button-container col-md-2">
+		  	<div class="button-container col-md-12">
 		  		<button data-action="loginIn" type="submit" class="btn btn-lg">Ingresar al sitio</button>
 		  	</div>
 		  </div>	
