@@ -14,6 +14,26 @@
 #formContainer label{
 	color: #9d9d9d;
 }
+
+.carousel-inner{
+	background-color: #101010;
+}
+
+
+
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+		color:white;
+		text-align: right;
+		
+}
+.carousel-inner > .item > img {
+    margin: 50px 50px 50px 80px;
+		max-width: 250px;
+}
+
+
 .button-container{
 	text-align: center;
 }
