@@ -1,22 +1,22 @@
-
-	<section>
-	  <div>
+<section>
+<div id="formContainer" class="container">
+	<div class="col-md-offset-1 col-md-9">
 	    <form id="uploadBook" class="uploadForm">
 	      <div class="form-group col-md-12">
-	        <div class="col-md-6">
+	        <div class="col-md-12">
 	            <label for="InputBookName">Nombre Libro</label>
 	            <input type="text" class="form-control" name="bookName" id="InputBookName" placeholder="Nombre Libro">
 	        </div>
 	      </div>
 	      <div class="form-group col-md-12">
-	        <div class="col-md-6">
+	        <div class="col-md-12">
 	          <label for="InputBookAuthor" >Nombre Autor</label>
 	          <input type="text" class="form-control" name="bookAuthor" placeholder="Nombre Autor">
 	          <!-- <textarea class="form-control" name="bookDescription" rows="3"></textarea> -->
 	        </div>
 	      </div>
 	      <div class="col-md-12">
-	        <div class="col-md-6">
+	        <div class="col-md-12">
 	          <label for="select">Elige sección</label>
 	          {if $sections}
 	          <select class="form-control" name="bookSection">
@@ -28,19 +28,19 @@
 	        </div>
 	      </div>
 	      <div class="col-md-12">
-	        <div class="form-group col-md-8">
+	        <div class="form-group col-md-12">
 	          <label for="bookImageToUpload">Agregar imagen portada</label>
-	          <input type="file" name="bookImageToUpload">
+	          <input class="col-md-12" type="file" name="bookImageToUpload">
 	        </div>
-	        <div class="form-group col-md-8">
+	        <div class="form-group col-md-12">
 	          <label for="bookToUpload">Agregar libro</label>
-	          <input type="file" name="bookToUpload">
+	          <input class="col-md-12" type="file" name="bookToUpload">
 	        </div>
-	        <div class="col-md-8">
-	          <button data-action="add-book" type="submit" class="btn btn-default">Enviar</button>
+	        <div class="form-group button-container col-md-12">
+	          <button data-action="add-book" type="submit" class="btn btn-default">Subir</button>
 	        </div>
 	      </div>
-
 	    </form>
-	  </div>
-	</section>
+	</div>
+</div>
+</section>

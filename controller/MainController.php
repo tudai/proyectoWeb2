@@ -18,29 +18,22 @@ class MainController extends BaseController{
 	
 	function getHome(){
 		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
-		$params['books'] = $this->getBooks();
+		$params['books'] = $this->model->getBooks();
 		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
 
 	function getContent($content){
 		return $this->view->getHTML($content);
-
 	}
 
 	function getSections(){
 		return $this->model->getSections();
 	}
 
-
 	function getBooksList($content){
-		$arr = $this->getBooks();
-		return $this->view->getHTML($content, null, $arr);
+		$params['books'] = $this->model->getBooks();
+		return $this->view->getHTML($content, null, $params);
 	}
-	
-	private function getBooks(){
-		$books = $this->model->getBooks();
-		return $books;
-	}
-	
+
 
 }

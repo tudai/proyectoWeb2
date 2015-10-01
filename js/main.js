@@ -7,13 +7,16 @@ function getSiteURL(){
 }
 
 
-function loadSiteComponent(path, target){
+function loadSiteComponent(path, target, callback){
   $.ajax({
     method: 'GET',
     url: getSiteURL() + 'index.php?action=' + path,
     dataType: 'html',
     success: function(data){
       $(target).html(data);
+      if( typeof callback !== 'undefined' && jQuery.isFunction( callback ) ){
+			callback();
+		}
     },
     error: function(){
       alert('Se produjo un erro de red. Charlale al admin para que lo arregle');
@@ -63,6 +66,15 @@ $(function(){
   	loadSiteComponent(this.id, '#content');
   })
 
+  /* para que al cargar el catalogo se clickee automaticamente
+   * el primer elemento de la lista
+   */
+  $('body').on('click', '#catalog', function(){
+	  event.preventDefault();
+	  	loadSiteComponent(this.id, '#content', function(){
+	  		$('.list-group-item:first').click();
+	  	});
+  })
 
   $('body').on('click', '#uploadBook button', function(event){
 	  event.preventDefault();
@@ -76,10 +88,10 @@ $(function(){
 	  });
   })
 
-	$('body').on('click', '.tableDB', function(event){
-		event.preventDefault();
-		loadSiteComponent('admin');
-	})
+  $('body').on('click', '.tableDB', function(event){
+	  event.preventDefault();
+	  loadSiteComponent('admin');
+  })
 
   $('body').on('click', '.list-group-item', function(event){
 		event.preventDefault();

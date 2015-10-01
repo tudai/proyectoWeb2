@@ -13,63 +13,63 @@ $thePolice = new ThePolice();
 if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];
 
-	if ($actionReq == ConfigApp::$ACTION_BOOK_ADD) {
-		$adminController = new AdminController();
-		echo $adminController->addBook();
-	}
-
-	if ($actionReq == ConfigApp::$ACTION_SECTION){
-		$adminController = new AdminController();
-		echo $adminController->addSection();
-
-	}
-	if ($actionReq == ConfigApp::$ACTION_BOOK ||
-		$actionReq == ConfigApp::$ACTION_CATALOG){
-		$adminController = new AdminController();
-		echo $adminController->getContent($actionReq);
-	}
-	if($actionReq == ConfigApp::$ACTION_GET_CATALOG_BY_ID){
-		$catalogController = new catalogController();
-		if (isset($_REQUEST['id'])){
-			$id = $_REQUEST['id'];
-			echo $catalogController->getBookByID($actionReq, $id);
-		}
-	}
-	if ($actionReq == ConfigApp::$ACTION_ADMIN ){
-		$adminController = new AdminController();
-		echo $adminController->getBooksForTable($actionReq);
-	}
-
-	if ($actionReq == ConfigApp::$ACTION_FAQS ||
-		$actionReq == ConfigApp::$ACTION_LOGIN ||
-		$actionReq == ConfigApp::$ACTION_SECTION) {
+	switch ($actionReq) {
+		case ConfigApp::$ACTION_BOOK_ADD:
+			$adminController = new AdminController();
+			echo $adminController->addBook();
+			break;
+		case ConfigApp::$ACTION_SECTION:
+			$adminController = new AdminController();
+			echo $adminController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_BOOK:
+			$adminController = new AdminController();
+			echo $adminController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_CATALOG:
+			$adminController = new AdminController();
+			echo $adminController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_GET_CATALOG_BY_ID:
+			$catalogController = new catalogController();
+			if (isset($_REQUEST['id'])){
+				$id = $_REQUEST['id'];
+				echo $catalogController->getBookByID($actionReq, $id);
+			}
+			break;
+		case ConfigApp::$ACTION_ADMIN:
+			$adminController = new AdminController();
+			echo $adminController->getBooksForTable($actionReq);
+			break;
+		case ConfigApp::$ACTION_FAQS:
+			$mainController = new MainController();
 			echo $mainController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_LOGIN:
+			$mainController = new MainController();
+			echo $mainController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_SECTION:
+			$mainController = new MainController();
+			echo $mainController->getContent($actionReq);
+			break;
+		case ConfigApp::$ACTION_DEFAULT:
+			$mainController = new MainController();
+			echo $mainController->getBooksList($actionReq);
+			break;
+		case ConfigApp::$ACTION_SECTION_ADD:
+			$adminController = new AdminController();
+			echo $adminController->addSection();
+			break;
+		case ConfigApp::$ACTION_LOGIN_EXEC:
+			$thePolice->login();
+			echo $mainController->getHome();
+			break;	
+		case ConfigApp::$ACTION_LOGOUT_EXEC:
+			$thePolice->logout();
+			echo $mainController->getHome();
+			break;
 	}
-	if ($actionReq == ConfigApp::$ACTION_DEFAULT){
-		echo $mainController->getBooksList($actionReq);
-	}
-
-	if ($actionReq == ConfigApp::$ACTION_SECTION_ADD){
-		$adminController = new AdminController();
-		echo $adminController->addSection();
-	}
-
-
-	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
-		 $thePolice->login();
-		 echo $_SESSION[ThePolice::$ACTIVE_USER]['id'];
-	}
-
-	if ($actionReq == ConfigApp::$ACTION_LOGIN_EXEC){
-		$thePolice->login();
-		echo $mainController->getHome();
-	}
-
-	if ($actionReq == ConfigApp::$ACTION_LOGOUT_EXEC){
-		$thePolice->logout();
-		echo $mainController->getHome();
-	}
-
 } else {
 	echo $mainController->getHome();
 }
