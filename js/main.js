@@ -115,5 +115,7 @@ $(function(){
 	  event.preventDefault();
 	  loadSiteComponent('logout', 'body');
   	})
+  	
+  	$('#footer').stickyFooter();
 
 })

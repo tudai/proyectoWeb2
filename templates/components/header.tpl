@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
 	</head>
   	<body>
-		<div class="container">
-			<div class="row">
-				<header>
-						<img src="images/header.jpg" class="img-responsive" alt="libros" id="img-header"/>
-				</header>
-			</div>
+		<header>
+				<img src="images/header.jpg" class="img-responsive" alt="libros" id="img-header"/>
+		</header>
+
