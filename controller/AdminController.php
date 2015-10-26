@@ -9,8 +9,8 @@ class AdminController extends BaseController{
 	}
 
 	function addSection(){
-		if (isset($_REQUEST['inputSection'])){
-			$result = $this->model->saveSection($_REQUEST['inputSection']);
+		if (isset($_REQUEST['sectionInput'])){
+			$result = $this->model->saveSection($_REQUEST['sectionInput']);
 			if ($result){
 				return "Se agregó la seccion con exito";
 			}
