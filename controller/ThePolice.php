@@ -14,7 +14,7 @@ class ThePolice{
 	public static $ACTIVE_USER = 'activeUser';
 
 	function __construct(){
-		$this->model = new BaseModel();
+		$this->model = new UserModel();
 		session_start();
 	}
 

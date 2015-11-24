@@ -14,6 +14,7 @@ class BooksApi extends ApiBase {
     switch ($this->method) {
       case 'GET':
         return $this->modelBook->();
+        
         break;
       case 'DELETE':
         if(count($this->args) > 0)
