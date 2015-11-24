@@ -13,7 +13,7 @@ abstract class BaseController{
 		$this->view = new MainView();
 	}
 
-	function getBooksForTable($content){
+	function buildBooksForTable(){
 		$books = $this->model->getBooks();
 		$categories = $this->model->getSections();
 		$arreglo = array();
@@ -28,12 +28,16 @@ abstract class BaseController{
 					$listOfBooks['seccion_id_seccion'] = $cat['nombre_seccion'];
 				}
 			}
-
 			array_push ($arreglo, $listOfBooks);
 		}
-		$arr = array('books' => $arreglo);//no estaria pasando nada con esto. Si hago lo anterior me lo da bien
-		return $this->view->getHTML($content, null, $arr);
 
+	 return $arreglo;
+	}
+
+	function getBooksForTable($content){
+		$arreglo = $this->buildBooksForTable();
+		$arr = array('books' => $arreglo);
+		return $this->view->getHTML($content, null, $arr);
 	}
 
 	abstract function getContent($content);

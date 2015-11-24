@@ -12,13 +12,13 @@ class MainController extends BaseController{
 
 	function showHome(){
 		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
-		
+
 		$this->view->show(ConfigApp::$VIEW_BASE_TEMPLATE, $params);
 	}
-	
+
 	function getHome(){
 		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
-		$params['books'] = $this->model->getBooks();
+		$params['books'] = $this->buildBooksForTable();
 		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
 
@@ -29,11 +29,5 @@ class MainController extends BaseController{
 	function getSections(){
 		return $this->model->getSections();
 	}
-
-	function getBooksList($content){
-		$params['books'] = $this->model->getBooks();
-		return $this->view->getHTML($content, null, $params);
-	}
-
 
 }
