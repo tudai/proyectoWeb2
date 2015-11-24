@@ -27,7 +27,7 @@ class MainController extends BaseController{
 	}
 
 	function getSections(){
-		return $this->model->getSections();
+		return $this->modelSection->getSections();
 	}
 
 }

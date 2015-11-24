@@ -104,6 +104,10 @@
 	font-size: 20px;
 }
 
+.bookWrapper .bookCaption span:first-child{
+	color: #FFA500;
+}
+
 .bookWrapper .bookCaption span:last-child{
 	color: #FFA500;
 }

@@ -10,7 +10,7 @@ class AdminController extends BaseController{
 
 	function addSection(){
 		if (isset($_REQUEST['sectionInput'])){
-			$result = $this->model->saveSection($_REQUEST['sectionInput']);
+			$result = $this->modelSection->saveSection($_REQUEST['sectionInput']);
 			if ($result){
 				return "Se agregó la seccion con exito";
 			}
@@ -29,7 +29,7 @@ class AdminController extends BaseController{
 			$book->author = $_REQUEST['bookAuthor'];
 			$book->section = $_REQUEST['bookSection'];
 
-			$result = $this->model->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
+			$result = $this->modelBook->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
 			if ($result){
 				return "Se agregó el libro con exito";
 			}
@@ -40,7 +40,7 @@ class AdminController extends BaseController{
 	}
 
 	function getContent($content){
-		$sections = $this->model->getSections();
+		$sections = $this->modelSection->getSections();
 		$arr = array('sections' => $sections);
 		return $this->view->getHTML($content, null, $arr);
 	}

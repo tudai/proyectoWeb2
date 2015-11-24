@@ -1,21 +1,24 @@
 <?php
 
-require_once 'model/BaseModel.php';
+require_once 'model/BookModel.php';
+require_once 'model/SectionModel.php';
 require_once 'view/MainView.php';
 
 abstract class BaseController{
 
-	protected $model;
+	protected $modelSection;
+	protected $modelBook;
 	protected $view;
 
 	function __construct(){
-		$this->model = new BaseModel();
+		$this->modelSection = new SectionModel();
+		$this->modelBook = new BookModel();
 		$this->view = new MainView();
 	}
 
 	function buildBooksForTable(){
-		$books = $this->model->getBooks();
-		$categories = $this->model->getSections();
+		$books = $this->modelBook->getBooks();
+		$categories = $this->modelSection->getSections();
 		$arreglo = array();
 		foreach ($books as $book ) {
 			$listOfBooks = [
