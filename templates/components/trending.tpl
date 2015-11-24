@@ -10,6 +10,7 @@
 					<div>
 						<span>{$book['nombre_libro']}</span>
 						<span>{$book['autor_libro']}</span>
+						<span>{$book['seccion_id_seccion']}</span>
 					</div>
 				</div>
 			</div>

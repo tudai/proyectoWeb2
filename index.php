@@ -55,7 +55,7 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 			break;
 		case ConfigApp::$ACTION_DEFAULT:
 			$mainController = new MainController();
-			echo $mainController->getBooksList($actionReq);
+			echo $mainController->getBooksForTable($actionReq);
 			break;
 		case ConfigApp::$ACTION_SECTION_ADD:
 			$adminController = new AdminController();
@@ -64,7 +64,7 @@ if (isset($_REQUEST[ConfigApp::$ACTION])){
 		case ConfigApp::$ACTION_LOGIN_EXEC:
 			$thePolice->login();
 			echo $mainController->getHome();
-			break;	
+			break;
 		case ConfigApp::$ACTION_LOGOUT_EXEC:
 			$thePolice->logout();
 			echo $mainController->getHome();
