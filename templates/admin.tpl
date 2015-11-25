@@ -1,30 +1,37 @@
 <div class="tableDB table-responsive">
   {if $books}
   <table class="table table-bordered">
-    <tr>
-      <th>
-        Nombre Libro
-      </th>
-      <th>
-        Autor
-      </th>
-      <th>
-        Categoria
-      </th>
-    </tr>
-    {foreach $books as $book}
+    <thead>
       <tr>
         <th>
-          {$book['nombre_libro']}
+          Nombre Libro
         </th>
         <th>
-          {$book['autor_libro']}
+          Autor
         </th>
         <th>
-          {$book['seccion_id_seccion']}
+          Categoria
         </th>
       </tr>
-    {/foreach}
+    </thead>
+    <tbody>
+      {foreach $books as $book}
+        <tr>
+          <td>
+            <a class="glyphicon glyphicon-pencil modify" ></a>
+            <a class="glyphicon glyphicon-trash delete" ></a>
+            {$book['nombre_libro']}
+
+          </td>
+          <td>
+            {$book['autor_libro']}
+          </td>
+          <td>
+            {$book['seccion_id_seccion']}
+          </td>
+        </tr>
+      {/foreach}
+    </tbody>
   </table>
 
   {/if}

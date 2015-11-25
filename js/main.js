@@ -92,7 +92,7 @@ $(function(){
 	  loadSiteComponent('admin');
   })
 
-  $('body').on('click', '.list-group-item', function(event){
+  $('body').on('click', '.list-group-item.sec', function(event){
 		event.preventDefault();
 		loadSiteComponent('booksList&id='+ this.id, '#bookList');
 		$(this).addClass('active');
@@ -115,6 +115,6 @@ $(function(){
 	  event.preventDefault();
 	  loadSiteComponent('logout', 'body');
   	})
-  	
+
 
 })

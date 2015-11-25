@@ -1,20 +1,21 @@
 <?php
 require_once 'api_base.php';
 require_once '../model/BaseModel.php';
+require_once '../model/BookModel.php';
 
 class BooksApi extends ApiBase {
   private $model;
 
   function __construct($request){
     parent::__construct($request);
-    $this->model = new BaseModel();
+    $this->modelBook = new BookModel();
   }
 
   function bookApi(){
     switch ($this->method) {
       case 'GET':
-        return $this->modelBook->();
-        
+        return $this->modelBook->getBooks();
+
         break;
       case 'DELETE':
         if(count($this->args) > 0)
