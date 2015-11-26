@@ -12,22 +12,26 @@
         <th>
           Categoria
         </th>
+        <th>
+          Acciones
+        </th>
       </tr>
     </thead>
     <tbody>
       {foreach $books as $book}
         <tr>
           <td>
-            <a class="glyphicon glyphicon-pencil modify" ></a>
-            <a class="glyphicon glyphicon-trash delete" ></a>
             {$book['nombre_libro']}
-
           </td>
           <td>
             {$book['autor_libro']}
           </td>
           <td>
             {$book['seccion_id_seccion']}
+          </td>
+          <td>
+            <a class="glyphicon glyphicon-pencil modify" ></a>
+            <a class="glyphicon glyphicon-trash delete" ></a>
           </td>
         </tr>
       {/foreach}
