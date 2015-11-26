@@ -9,6 +9,8 @@ require_once 'controller/ThePolice.php';
 
 $mainController = new MainController();
 $thePolice = new ThePolice();
+$thePolice->verificarTiempo();//verifica el tiempo c
+
 
 if (isset($_REQUEST[ConfigApp::$ACTION])){
 	$actionReq = $_REQUEST[ConfigApp::$ACTION];

@@ -18,7 +18,14 @@ class ThePolice{
 		session_start();
 	}
 
+	function incializar(){
+		$_SESSION['intervalo']  = 1; // en minutos
+		$_SESSION['inicio'] = time(); //tiempo de inicio
+
+	}
+
 	function login(){
+
 		if (isset($_REQUEST['username']) && isset($_REQUEST['password']) ){
 			$username = $_REQUEST['username'];
 			$password = $_REQUEST['password'];
@@ -30,7 +37,7 @@ class ThePolice{
 				$user['role'] = $userTemp[0]['role'];
 				$user['id'] = session_id();
 				$_SESSION[ThePolice::$ACTIVE_USER] = $user;
-
+				$this->incializar();
 				return true;
 			} else
 				return false;
@@ -38,8 +45,21 @@ class ThePolice{
 			return false;
 	}
 
+	function verificarTiempo(){
+		if (isset($_SESSION['inicio']) && isset($_SESSION['intervalo'])){
+			$segundos = time();
+			$tiempo_transcurrido = $segundos;
+			$_SESSION['inicio'];
+			$tiempo_maximo = $_SESSION['inicio']  + ($_SESSION['intervalo'] * 60); // se multiplica por 60 segundos ya que se configura en minutos
+			if($tiempo_transcurrido > $tiempo_maximo){
+				$this->logout();
+			}
+		}
+	}
+
 	function logout(){
 		session_unset();
 		session_destroy();
+		header('Location: index.php');
 	}
 }
