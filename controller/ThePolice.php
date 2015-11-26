@@ -19,7 +19,7 @@ class ThePolice{
 	}
 
 	function incializar(){
-		$_SESSION['intervalo']  = 1; // en minutos
+		$_SESSION['intervalo']  = 10; // en minutos
 		$_SESSION['inicio'] = time(); //tiempo de inicio
 
 	}
