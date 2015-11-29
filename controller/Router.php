@@ -38,9 +38,10 @@ class Router{
 		$result[1]['tpl'] =  $routes[$route]['tpl'];
 		$t=0;
 		foreach($args as $value){
-			$result[1][$value] = $params[$t];
+			$result[2][$value] = $params[$t];
 			$t++; 
 		}
+		echo json_encode($result);
 		return $result;
 	}
 	
@@ -49,12 +50,9 @@ class Router{
 		if (method_exists($this->controller, $this->method)) {
 		 	$obj = new $this->controller();
 		 	$params = array();
-		 	if ($this->args != null){
-		 		$params[] = 
-		 	} 
-		 		
-		 		
-		      	echo $obj->{$this->method}($this->$args);
+		 	
+					 		
+		    echo $obj->{$this->method}($this->$args);
 		 } 
 	}
 	
