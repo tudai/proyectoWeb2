@@ -25,7 +25,7 @@ class Router{
 		
 		$this->controller = ucfirst($routes[$routeElement]['controller']).'Controller'; // ->LalaController
 		$this->method = $routes[$routeElement]['method']; // -> getBook
-		$this->args = $pattern[1]; // {"id": "9"}
+		$this->args = $pattern[2]; // {"id": "9"}
 	}
 
 	function processRequest($request, $routes){
@@ -35,7 +35,7 @@ class Router{
 		
 		$result = array();
 		$result[0]['route'] = $route;
-		$result[1]['tpl'] = 
+		$result[1]['tpl'] =  $routes[$route]['tpl'];
 		$t=0;
 		foreach($args as $value){
 			$result[1][$value] = $params[$t];
