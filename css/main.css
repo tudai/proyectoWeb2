@@ -1,5 +1,18 @@
 @CHARSET "UTF-8";
 
+
+.imageAndText {
+	position: relative;
+}
+.imageAndText h1{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	color: white;
+	font-size: xx-large;
+}
+
 #formContainer{
 	margin-top: 40px;
 }
@@ -14,19 +27,21 @@
 #formContainer label{
 	color: #9d9d9d;
 }
+@media (max-width:800px) {
+    #carouselContainer {
+        display:none !important;
+    }
+}
 
 .carousel-inner{
 	background-color: #101010;
 }
-
-
 
 .carousel-caption {
     top: 0;
     bottom: auto;
 		color:white;
 		text-align: right;
-
 }
 .carousel-inner > .item > img {
     margin: 50px 50px 50px 80px;
@@ -115,6 +130,6 @@
 	opacity: 0.8;
 }
 
-#trending{
-	maargin-top: 30px;
-}
+/*#trending{
+	margin-top: 30px;
+}*/

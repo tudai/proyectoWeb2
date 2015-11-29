@@ -9,5 +9,8 @@
 	</head>
   	<body>
 		<header>
-				<img src="images/header.jpg" class="img-responsive" alt="libros" id="img-header"/>
+			<div class="imageAndText">
+					<img src="images/header.jpg" class="img-responsive" alt="libros" id="img-header"/>
+					<h1 class="col-md-12 col-md-offset-8">La Sección Prohibida</h1>
+			</div>
 		</header>

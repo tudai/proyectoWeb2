@@ -1,4 +1,6 @@
 
+<div id="carouselContainer">
+
 
   <h2>Recomendados del Mes</h2>
   <div id="home-page" class="col-md-12">
@@ -46,3 +48,4 @@
       </a>
     </div>
   </div>
+</div>

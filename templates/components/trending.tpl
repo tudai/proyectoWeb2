@@ -4,7 +4,7 @@
 	{if $books}
 		{foreach $books as $book}
 		<a href="{$book['url_libro']}">
-			<div class="bookWrapper">
+			<div class="col-xs-10 col-md-2 bookWrapper">
 				<img class="bookImg" src="{$book['img_libro']}" alt="imagen-{$book['img_libro']}" id="{$book['id_libro']}" />
 				<div class="bookCaption">
 					<div>
