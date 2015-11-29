@@ -1,6 +1,8 @@
 <?php
-require_once 'BooksApi.php';
+require_once 'AdminApi.php';
+require_once '../config/config_app.php';
 
-$booksApi = new BooksApi($_REQUEST['parametros']);
-echo $booksApi->processAPI();
+$adminApi = new AdminApi($_REQUEST['parametros']);
+
+echo $adminApi->processAPI();
 ?>

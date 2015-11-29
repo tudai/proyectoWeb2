@@ -22,6 +22,9 @@ class MainController extends BaseController{
 		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
 
+	/*
+	 * Retorna una tpl cuyo nombre esta dato por $content
+	 * */
 	function getContent($content){
 		return $this->view->getHTML($content);
 	}

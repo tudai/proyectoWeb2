@@ -42,6 +42,10 @@ abstract class BaseController{
 		$arr = array('books' => $arreglo);
 		return $this->view->getHTML($content, null, $arr);
 	}
+	
+	
+	function getBookAndSection($content){
+	}
 
 	abstract function getContent($content);
 

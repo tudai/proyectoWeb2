@@ -1,6 +1,7 @@
-<div class="tableDB table-responsive">
+<h2>Libros</h2>
+<div class="table-responsive">
   {if $books}
-  <table class="table table-bordered">
+  <table class="table table-bordered table-striped">
     <thead>
       <tr>
         <th>
@@ -41,3 +42,4 @@
   {/if}
 
 </div>
+

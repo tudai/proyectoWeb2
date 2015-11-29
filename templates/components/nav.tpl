@@ -13,19 +13,29 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    	<ul class="nav navbar-nav">
-			    		<li><a id="home" href="#">Home</a></li>
-						<li><a id="catalog" href="#">Catálogo</a></li>
-				        <li><a id="faq" href="#">FAQ</a></li>
+			    		<li class="action"><a id="home" href="#">Home</a></li>
+						<li class="action"><a id="catalog" href="#">Catálogo</a></li>
+				        <li class="action"><a id="faq" href="#">FAQ</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
 			      	{if isset($smarty.session.activeUser)}
-			      		<li><a id="admin" href="#">Administrador</a></li>
-			      	<!--	<li><a id="register" href="#">Registro</a></li> -->
-						<li><a id="book" href="#">Agregar Libro</a></li>
-						<li><a id="section" href="#">Agregar Categoría</a></li>
-						<li><a id="logout" href="#">Logout</a></li>
+			      		<li>
+			      			<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Libros</a>
+			      			 <ul class="dropdown-menu">
+							    <li class="action"><a id="admin-list-books" href="#">Listar Libros</a></li>
+							    <li class="action"><a id="admin-book-form" href="#">Agregar Libro</a></li>
+							  </ul>
+			      		</li>
+ 						<li>
+			      			<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
+			      			 <ul class="dropdown-menu">
+							    <li class="action"><a id="admin-list-section" href="#">Listar Categorías</a></li>
+							    <li class="action"><a id="admin-section-form" href="#">Agregar Categoría</a></li>
+							  </ul>
+			      		</li>			      	
+						<li class="action"><a id="logout" href="#">Logout</a></li>
 					{else}
-						<li><a id="login" href="#">Login</a></li>
+						<li class="action"><a id="login" href="#">Login</a></li>
 					{/if}
 
 			      </ul>

@@ -10,7 +10,7 @@ function getSiteURL(){
 function loadSiteComponent(path, target, callback){
   $.ajax({
     method: 'GET',
-    url: getSiteURL() + 'index.php?action=' + path,
+    url: getSiteURL() + path,
     dataType: 'html',
     success: function(data){
       $(target).html(data);
@@ -44,7 +44,6 @@ function sendBookToServer(path, target){
     });
 }
 
-
 function sendContentToServer(path, FormID, callback){
 	$.ajax({
 		type: "POST",
@@ -64,8 +63,8 @@ function sendContentToServer(path, FormID, callback){
 $(function(){
 
   $('nav li.action > a').click(function(event){
-	  event.preventDefault();
-  	loadSiteComponent(this.id, '#content');
+	 event.preventDefault();
+  	 loadSiteComponent(this.id, '#content');
   })
 
   /* para que al cargar el catalogo se clickee automaticamente
@@ -73,7 +72,6 @@ $(function(){
    */
   $('body').on('click', '#catalog', function(){
 	  event.preventDefault();
-	  alert('adad');
 	  	loadSiteComponent(this.id, '#content', function(){
 	  		$('.list-group-item:first').click();
 	  	});
@@ -93,7 +91,7 @@ $(function(){
 
   $('body').on('click', '.list-group-item.sec', function(event){
 		event.preventDefault();
-		loadSiteComponent('booksList&id='+ this.id, '#bookList');
+		loadSiteComponent('books-list/'+ this.id, '#bookList');
 		$(this).addClass('active');
 		$(this).siblings().removeClass('active');
   })

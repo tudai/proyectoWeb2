@@ -1,7 +1,8 @@
 <?php
-    require_once 'BaseModel.php';
 
-    class BookModel extends BaseModel
+require_once 'BaseModel.php';
+
+class BookModel extends BaseModel
     {
       private function uploadBook($fileBook, $fileImage){
          $folder = $this->prepareFolder($fileBook);
@@ -17,19 +18,20 @@
        }
 
 
-       private function prepareFolder($file){
+      private function prepareFolder($file){
          $dir = BaseModel::$ROOT_FOLDER ."/".uniqid().$file['name']."/";
          if (!file_exists($dir)){
            mkdir($dir, 0755);
          }
          return $dir;
-       }
+      }
 
-       function getBooks(){
+      function getBooks(){
          $query = $this->db->prepare("SELECT * FROM libro");
          $query->execute();
          return $query->fetchAll();
-       }
+      }
+       
       function saveBook($book, $fileBook, $fileImage){
         $path = array();
         $path = $this->uploadBook($fileBook, $fileImage);
@@ -42,14 +44,14 @@
         $query->bindParam(':url', $path['book_path']);
         $query->bindParam(':section', $book->section);
         return $query->execute();
-        }
+      }
 
       function getBookBySectionID($id){
         $query = $this->db->prepare('SELECT nombre_libro, autor_libro FROM libro WHERE seccion_id_seccion = :idsection');
         $query->bindParam('idsection', $id);
         $query->execute();
         return $query->fetchAll();
-        }
+      }
 
 
     }
