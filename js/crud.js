@@ -109,6 +109,28 @@ function modifySection(formID) {
 	})
 }
 
+
+function saveBook(){
+	var datos = new FormData($('#uploadBook')[0]);
+    datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
+    
+	$.ajax({
+		method: 'POST',
+		url:'api/book',
+		datatype: 'JSON',
+        data: datos,
+	    contentType : false,
+	    processData : false,
+		success: function(data){
+			 alert(data);
+		},
+	    error: function () {
+	    	 alert("Se produjo un erro de red. Charlale al admin para que lo arregle");
+		}
+	});
+}
+
+
 $(function(){
 	$('body').on('click', 'a.deleteS', function(event){
 		event.preventDefault();
@@ -133,4 +155,11 @@ $(function(){
 		event.preventDefault();
 		listSections();
 	});
+	
+
+	$('body').on('click', '#uploadBook button[type="submit"]', function(event){
+		event.preventDefault();
+		saveBook();
+	});
+	  	
 })

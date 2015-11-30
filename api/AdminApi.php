@@ -29,7 +29,7 @@ class AdminApi extends ApiBase {
       		$book->name = $_REQUEST['bookName'];
       		$book->author = $_REQUEST['bookAuthor'];
       		$book->section = $_REQUEST['bookSection'];
-      		$result = $this->modelBook->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
+      		$result = $this->bookModel->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
       		if ($result){
       			return "Se agregó el libro con exito";
       		}
