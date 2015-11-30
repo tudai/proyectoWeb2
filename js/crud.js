@@ -94,16 +94,16 @@ function deleteSection(idSection) {
 });
 }
 
-function modifySection() {
+function modifySection(formID) {
 	$.ajax({
 		method: 'PUT',
-		url: 'api/section/'+idSection,
-		datatype: 'JSON',
+		url: 'api/section',
+		data: $('#'+formID).serialize(),
 		success: function(){
-			$('#seccion'+idSection)
+			alert('Salió bien pió');
 		},
 		error: function(){
-			alert('No se hay modificado la seccion')
+			alert('No se hay modificado la seccion');
 		}
 
 	})
@@ -119,6 +119,11 @@ $(function(){
 		event.preventDefault();
 		var id=$(this).data("id");
 		deleteBook(id);
+	});
+	$('body').on('click', '#modifySection button', function(event){
+		event.preventDefault();
+		modifySection('modifySection')
+
 	});
 	$('body').on('click', '#admin-list-books', function(event){
 		event.preventDefault();
