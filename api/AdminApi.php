@@ -12,8 +12,8 @@ class AdminApi extends ApiBase {
     $this->bookModel  = new BookModel();
     $this->sectionModel = new SectionModel();
   }
- 
-  
+
+
   function book(){
     switch ($this->method) {
       case 'GET':
@@ -40,8 +40,7 @@ class AdminApi extends ApiBase {
       	}
         break;
       case 'PUT':
-        // if(count($this->args) > 0)
-        //   return $this->model->realizarTarea($this->args[0]);
+         return $this->bookModel->update($this->args[0]);
         break;
       default:
             return 'Verbo no soportado';
