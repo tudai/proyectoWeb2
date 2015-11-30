@@ -1,0 +1,5 @@
+<li id="seccion{{id_seccion}}" class="list-group-item">
+  <span><a class="glyphicon glyphicon-pencil modify" ></a></span>
+  <span><a class="glyphicon glyphicon-trash delete" ></a></span>
+  <span>{{nombre_seccion}}</span>
+</li>

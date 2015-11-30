@@ -19,25 +19,14 @@
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
 			      	{if isset($smarty.session.activeUser)}
-			      		<li>
-			      			<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Libros</a>
-			      			 <ul class="dropdown-menu">
 							    <li><a id="admin-list-books" href="#">Listar Libros</a></li>
 							    <li class="action"><a id="admin-book-form" href="#">Agregar Libro</a></li>
-							  </ul>
-			      		</li>
- 						<li>
-			      			<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías</a>
-			      			 <ul class="dropdown-menu">
 							    <li class="action"><a id="admin-list-section" href="#">Listar Categorías</a></li>
 							    <li class="action"><a id="admin-section-form" href="#">Agregar Categoría</a></li>
-							  </ul>
-			      		</li>			      	
-						<li class="action"><a id="logout" href="#">Logout</a></li>
-					{else}
-						<li class="action"><a id="login" href="#">Login</a></li>
-					{/if}
-
+									<li class="action"><a id="logout" href="#">Logout</a></li>
+							{else}
+									<li class="action"><a id="login" href="#">Login</a></li>
+							{/if}
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
