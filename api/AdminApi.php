@@ -16,8 +16,8 @@ class AdminApi extends ApiBase {
   function book(){
     switch ($this->method) {
       case 'GET':
-      	$books = $this->bookModel->getBooks();
-      	
+      	return $books = $this->bookModel->getBooks();
+
         break;
       case 'DELETE':
         // if(count($this->args) > 0)
@@ -36,11 +36,11 @@ class AdminApi extends ApiBase {
         break;
     }
   }
-  
+
   function section(){
    switch ($this->method) {
       case 'GET':
-      	return $this->sectionModel->getSections();      	
+      	return $this->sectionModel->getSections();
         break;
       case 'DELETE':
         // if(count($this->args) > 0)

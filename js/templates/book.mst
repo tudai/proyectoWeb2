@@ -1,0 +1,9 @@
+<li id="libro{{id}}" class="list-group-item">
+  <span>{{nombre_libro}}</span>
+</li>
+<li id="libro{{id}}" class="list-group-item">
+  <span>{{autor_libro}}</span>
+</li>
+<li id="libro{{id}}" class="list-group-item">
+  <span>{{nombre_libro}}</span>
+</li>

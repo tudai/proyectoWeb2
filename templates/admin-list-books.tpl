@@ -1,6 +1,9 @@
 <h2>Libros</h2>
-<div class="table-responsive">
-  {if $books}
+<div>
+  <ul id="listBooks" class="list-group">
+
+  </ul>
+  <!-- {if $books}
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -18,9 +21,10 @@
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="listBooks">
+      <tr>
       {foreach $books as $book}
-        <tr>
+
           <td>
             {$book['nombre_libro']}
           </td>
@@ -39,7 +43,6 @@
     </tbody>
   </table>
 
-  {/if}
+  {/if} -->
 
 </div>
-

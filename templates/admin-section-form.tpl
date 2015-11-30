@@ -9,7 +9,7 @@
 	      	</div>
 	     	<div class="form-group">
 	      	<button data-action="add-section" type="submit" class="btn btn-default">Enviar</button>
-	    	</div
+	    	</div>
 	    </form>
 	</div>
 </div>
