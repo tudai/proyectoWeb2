@@ -30,6 +30,7 @@ function listBooks(){
 		}
 	});
 }
+
 function createSectionHTML(section){
 	$.ajax({
 		url: 'js/templates/section.mst',
@@ -42,6 +43,8 @@ function createSectionHTML(section){
 		}
 	})
 }
+
+
 function listSections(){
 	$.ajax({
 		method: 'GET',
