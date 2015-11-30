@@ -21,9 +21,9 @@
 			      	{if isset($smarty.session.activeUser)}
 							    <li><a id="admin-list-books" href="#">Listar Libros</a></li>
 							    <li class="action"><a id="admin-book-form" href="#">Agregar Libro</a></li>
-							    <li class="action"><a id="admin-list-section" href="#">Listar Categorías</a></li>
+							    <li><a id="admin-list-section" href="#">Listar Categorías</a></li>
 							    <li class="action"><a id="admin-section-form" href="#">Agregar Categoría</a></li>
-									<li class="action"><a id="logout" href="#">Logout</a></li>
+								<li class="action"><a id="logout" href="#">Logout</a></li>
 							{else}
 									<li class="action"><a id="login" href="#">Login</a></li>
 							{/if}
