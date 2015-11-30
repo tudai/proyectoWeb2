@@ -10,8 +10,10 @@ class UserModel extends BaseModel {
       $query->execute();
     	return $query->fetchAll();
     }
-    function delete($id){
-    	 
+ 	function delete($id){
+    	$query = $this->db->prepare('DELETE FROM usuarios WHERE id_user = :id_user');
+    	$query->bindParam(':id_user', $id);
+    	return $query->execute();
     }
 }
 

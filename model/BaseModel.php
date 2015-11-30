@@ -2,7 +2,7 @@
 
 require_once  $_SERVER['DOCUMENT_ROOT']."/proyectoWeb2/config/db_params.php";// ../config/db_params.php funciona para la api, asi no
 
-class BaseModel {
+abstract class BaseModel {
 
   protected  $book;
   protected  $db;

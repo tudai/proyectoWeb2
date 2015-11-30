@@ -16,7 +16,9 @@ class SectionModel extends BaseModel {
       }
 
     function delete($id){
-    	
+    	$query = $this->db->prepare('DELETE FROM section WHERE id_section = :id_section');
+    	$query->bindParam(':id_section', $id);
+    	return $query->execute();
     }
     
 }
