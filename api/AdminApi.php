@@ -20,8 +20,8 @@ class AdminApi extends ApiBase {
 
         break;
       case 'DELETE':
-        // if(count($this->args) > 0)
-        //   return $this->model->borrarTarea($this->args[0]);
+        if(count($this->args) > 0)
+           return $this->bookModel->delete($this->args[0]);
         break;
       case 'POST':
         // if(isset($_POST['tarea']))
@@ -43,8 +43,8 @@ class AdminApi extends ApiBase {
       	return $this->sectionModel->getSections();
         break;
       case 'DELETE':
-        // if(count($this->args) > 0)
-        //   return $this->model->borrarTarea($this->args[0]);
+         if(count($this->args) > 0)
+           return $this->sectionModel->delete($this->args[0]);
         break;
       case 'POST':
         // if(isset($_POST['tarea']))

@@ -72,20 +72,38 @@ function deleteBook(idBook) {
 		url: 'api/book/'+idBook,
 		datatype: 'JSON',
 		success: function() {
-			$('#book'+idBook).remove();
+			$('#libro'+idBook).remove();
 		},
 		error: function(){
-			alert('Error! No se ha borrado');
+			alert('Error! No se ha borrado el libro');
 		}
 });
 }
 
-
+function deleteSection(idSection) {
+	$.ajax({
+		method: 'DELETE',
+		url: 'api/book/'+idSection,
+		datatype: 'JSON',
+		success: function() {
+			$('#seccion'+idSection).remove();
+		},
+		error: function(){
+			alert('Error! No se ha borrado la seccion');
+		}
+});
+}
 
 $(function(){
 	$('body').on('click', 'a.deleteB', function(event){
 		event.preventDefault();
-		deleteBook(this.getAttribute('id_libro'));
+		var id=$(this).data("id");
+		deleteSection(id);
+	});
+	$('body').on('click', 'a.deleteS', function(event){
+		event.preventDefault();
+		var id=$(this).data("id");
+		deleteBook(id);
 	});
 	$('body').on('click', '#admin-list-books', function(event){
 		event.preventDefault();
