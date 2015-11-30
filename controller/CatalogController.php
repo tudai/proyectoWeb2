@@ -7,9 +7,7 @@ class CatalogController extends BaseController{
 		parent::__construct();
 	}
 
-	function getContent($content){
-
-	}
+	function getContent($content){}
 
 	function getBookByID($args){
 		$books = $this->modelBook->getBookBySectionID($args['args']['id']);

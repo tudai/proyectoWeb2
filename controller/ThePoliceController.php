@@ -4,20 +4,21 @@
 
 require_once 'model/UserModel.php';
 require_once 'view/MainView.php';
+require_once 'BaseController.php';
 
-class ThePoliceController{
+class ThePoliceController extends BaseController{
 
 	private $activeUser;
 	private $activeSession;
 
-	private $model;
-	private $view;
+	private $userModel;
 
 	public static $ACTIVE_USER = 'activeUser';
 
 	function __construct(){
-		$this->model = new UserModel();
-		$this->view = new MainView();
+		parent::__construct();
+		$this->userModel = new UserModel();
+
 		if (!$this->is_session_started())
 			session_start();
 	}
@@ -33,7 +34,7 @@ class ThePoliceController{
 		if (isset($_REQUEST['username']) && isset($_REQUEST['password']) ){
 			$username = $_REQUEST['username'];
 			$password = $_REQUEST['password'];
-			$userTemp = $this->model->getUserCredentials($username, $password);
+			$userTemp = $this->userModel->getUserCredentials($username, $password);
 
 			if (count($userTemp)>0){
 
@@ -46,6 +47,7 @@ class ThePoliceController{
 			} 
 		} 
 		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
+		$params['books'] = $this->buildBooksForTable();
 		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
 
@@ -78,4 +80,5 @@ class ThePoliceController{
 		return FALSE;
 	}
 	
+	function getContent($content){}
 }
