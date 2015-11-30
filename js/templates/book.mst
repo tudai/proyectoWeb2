@@ -1,9 +1,4 @@
-<li id="libro{{id}}" class="list-group-item">
+<li id="libro{{id_libro}}" class="list-group-item">
   <span>{{nombre_libro}}</span>
-</li>
-<li id="libro{{id}}" class="list-group-item">
   <span>{{autor_libro}}</span>
-</li>
-<li id="libro{{id}}" class="list-group-item">
-  <span>{{nombre_libro}}</span>
 </li>

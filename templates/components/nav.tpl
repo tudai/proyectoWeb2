@@ -22,7 +22,7 @@
 			      		<li>
 			      			<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Libros</a>
 			      			 <ul class="dropdown-menu">
-							    <li class="action"><a id="admin-list-books" href="#">Listar Libros</a></li>
+							    <li><a id="admin-list-books" href="#">Listar Libros</a></li>
 							    <li class="action"><a id="admin-book-form" href="#">Agregar Libro</a></li>
 							  </ul>
 			      		</li>
