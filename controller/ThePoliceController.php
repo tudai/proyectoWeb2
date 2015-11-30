@@ -3,18 +3,21 @@
 //require_once 'BaseController.php';
 
 require_once 'model/UserModel.php';
+require_once 'view/MainView.php';
 
-class ThePolice{
+class ThePoliceController{
 
 	private $activeUser;
 	private $activeSession;
 
 	private $model;
+	private $view;
 
 	public static $ACTIVE_USER = 'activeUser';
 
 	function __construct(){
 		$this->model = new UserModel();
+		$this->view = new MainView();
 		session_start();
 	}
 
@@ -36,13 +39,13 @@ class ThePolice{
 				$user['username'] = $userTemp[0]['username'];
 				$user['role'] = $userTemp[0]['role'];
 				$user['id'] = session_id();
-				$_SESSION[ThePolice::$ACTIVE_USER] = $user;
+				$_SESSION[ThePoliceController::$ACTIVE_USER] = $user;
 				$this->incializar();
-				return true;
-			} else
-				return false;
-		} else
-			return false;
+
+			} 
+		} 
+		$params[ConfigApp::$VIEW_CONTENT] = ConfigApp::$VIEW_TEMPLATE_BASEPATH . ConfigApp::$ACTION_DEFAULT . ConfigApp::$VIEW_TPL_EXT;
+		return $this->view->getHTML(ConfigApp::$VIEW_BASE_TEMPLATE, null, $params);
 	}
 
 	function verificarTiempo(){
@@ -62,4 +65,5 @@ class ThePolice{
 		session_destroy();
 		header('Location: index.php');
 	}
+	
 }

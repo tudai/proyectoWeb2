@@ -25,20 +25,31 @@ return [
 			'method' => 'getContent',
 			'tpl' => 'catalog',
 	],
-	'admin-list-books' => [
-			'controller' => 'admin',
-			'method' => 'getBooksForTable',
-			'tpl' => 'admin-list-books', 
-	],
-	'admin-book-form' => [
-			'controller' => 'admin',
-			'method' => 'getContent',
-			'tpl' => 'admin-book-form',
-	],	
 	'books-list' => [
 			'controller' => 'catalog',
 			'method' => 'getBookByID',
 			'tpl' => 'public-books-list',
 			'args' => ['id']			
-	]	
+	],
+	'loginIn' => [
+			'controller' => 'thePolice',
+			'method' => 'login',
+			'tpl' => 'home'
+	],
+	'logout' => [
+			'controller' => 'thePolice',
+			'method' => 'logout',
+			'tpl' => 'home'
+	],
+	'admin-list-books' => [
+			'controller' => 'admin',
+			'method' => 'getBooksForTable',
+			'tpl' => 'admin-list-books',
+	],
+	'admin-book-form' => [
+			'controller' => 'admin',
+			'method' => 'getContent',
+			'tpl' => 'admin-book-form',
+	],
+		
 ];

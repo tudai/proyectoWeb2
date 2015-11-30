@@ -31,7 +31,7 @@ function sendBookToServer(path, target){
 
     $.ajax({
       type: "POST",
-      url: getSiteURL() + "index.php?action="+path,
+      url: getSiteURL() + path,
       data: datos,
       contentType : false,
       processData : false,
@@ -47,7 +47,7 @@ function sendBookToServer(path, target){
 function sendContentToServer(path, FormID, callback){
 	$.ajax({
 		type: "POST",
-		url: getSiteURL() + "index.php?action="+path,
+		url: getSiteURL() + path,
 		data: $('#'+FormID).serialize(),
 		success: function(data){
 			if( typeof callback !== 'undefined' && jQuery.isFunction( callback ) ){
