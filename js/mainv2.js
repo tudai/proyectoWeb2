@@ -91,6 +91,12 @@ $(function(){
 			$('#updateSection').attr('data-id', id);
 		});
 	})
+	$('body').on('click', '#admin-section-form', function(event){
+		event.preventDefault();
+		loadSiteComponent('admin-section-form', '#content');
+		})
+
+
 
 
   /*

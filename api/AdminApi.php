@@ -58,8 +58,9 @@ class AdminApi extends ApiBase {
            return $this->sectionModel->delete($this->args[0]);
         break;
       case 'POST':
-        // if(isset($_POST['tarea']))
-        //   return $this->model->agregarTarea($_POST['tarea']);
+        	if (isset($_REQUEST['sectionAdd'])){
+            return $this->sectionModel->saveSection($_REQUEST['sectionAdd']);
+          }
         break;
       case 'PUT':
           echo($_REQUEST['name']);

@@ -55,6 +55,11 @@ return [
 			'controller' => 'admin',
 			'method' => 'getContent',
 			'tpl' => 'admin-list-section',
+	],
+	'admin-section-form'=>[
+			'controller'=>'admin',
+			'method' => 'getContent',
+			'tpl' => 'admin-section-form',
 	]
 
 ];

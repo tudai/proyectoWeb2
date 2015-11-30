@@ -117,6 +117,19 @@ function modifySection() {
 	})
 }
 
+function saveSection() {
+	$.ajax({
+		method: 'POST',
+		url:'api/section',
+		datatype: 'JSON',
+		success: function(){
+			 alert('anduvo');
+		},
+			error: function () {
+				 alert("Se produjo un erro de red. Charlale al admin para que lo arregle");
+		}
+	});
+}
 
 function saveBook(){
 	var datos = new FormData($('#uploadBook')[0]);
@@ -162,6 +175,11 @@ $(function(){
 		event.preventDefault();
 		listSections();
 	});
+	// $('body').on('click', '#admin-section-form', function(event){
+	// 	event.preventDefault();
+	// 	saveSection();
+	// });
+
 
 
 	$('body').on('click', '#uploadBook button[type="submit"]', function(event){
