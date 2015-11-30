@@ -35,7 +35,8 @@ class Router{
 	}
 
 	function processRequest($request, $routes){
-		$params = explode("/", rtrim($request['action'], '/')); // book/9 => [book, 9]
+		if (array_key_exists('action', $request))
+			$params = explode("/", rtrim($request['action'], '/')); // book/9 => [book, 9]
 		
 		if ($params[0] != "")
 			$route = array_shift($params); // book << $params => [9]
