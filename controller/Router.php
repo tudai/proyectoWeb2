@@ -27,7 +27,8 @@ class Router{
 		$this->method = $routes[$routeElement]['method']; // -> getBook
 		
 		$this->args['tpl'] = $pattern['tpl'];
-		if ($pattern['args'] !=null)
+		
+		if (array_key_exists('args', $pattern))
 			$this->args['args'] = $pattern['args'];
 	
 	
@@ -48,7 +49,7 @@ class Router{
 		$result['tpl'] =  $routes[$route]['tpl'];
 		$t=0;
 		
-		if ($routes[$route]['args']!= null){
+		if (array_key_exists('args', $routes[$route])){
 			$args = $routes[$route]['args'];
 			foreach($args as $value){
 				$result['args'][$value] = $params[$t];
@@ -62,8 +63,6 @@ class Router{
 		
 		if (method_exists($this->controller, $this->method)) {
 		 	$obj = new $this->controller();
-		 //	echo $this->controller ."->".$this->method.": ". json_encode($this->args);
-
 		 	echo $obj->{$this->method}($this->args);
 		 } 
 	}
