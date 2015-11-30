@@ -66,9 +66,27 @@ function listSections(){
 	});
 }
 
+function deleteBook(idBook) {
+	$.ajax({
+		method: 'DELETE',
+		url: 'api/book/'+idBook,
+		datatype: 'JSON',
+		success: function() {
+			$('#book'+idBook).remove();
+		},
+		error: function(){
+			alert('Error! No se ha borrado');
+		}
+});
+}
+
 
 
 $(function(){
+	$('body').on('click', 'a.deleteB', function(event){
+		event.preventDefault();
+		deleteBook(this.getAttribute('id_libro'));
+	});
 	$('body').on('click', '#admin-list-books', function(event){
 		event.preventDefault();
 		listBooks();
