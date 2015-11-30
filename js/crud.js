@@ -91,13 +91,16 @@ function deleteSection(idSection) {
 });
 }
 
-function modifySection(idSection) {
+function modifySection() {
 	$.ajax({
 		method: 'PUT',
 		url: 'api/section/'+idSection,
 		datatype: 'JSON',
 		success: function(){
 			$('#seccion'+idSection)
+		},
+		error: function(){
+			alert('No se hay modificado la seccion')
 		}
 
 	})
