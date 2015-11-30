@@ -62,6 +62,7 @@ class AdminApi extends ApiBase {
         //   return $this->model->agregarTarea($_POST['tarea']);
         break;
       case 'PUT':
+          echo($_REQUEST['name']);
           return $this->sectionModel->update($_REQUEST['sectionInput']);
         break;
       default:

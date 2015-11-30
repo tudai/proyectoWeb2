@@ -94,15 +94,19 @@ function deleteSection(idSection) {
 });
 }
 
-function modifySection(formID) {
-	var arr = [
+function modifySection() {
 
-	];
+	var arr = {
+		'name': $('#sectionInput').val(),
+		'data-id':$('#updateSection').attr('data-id')
+	};
 	$.ajax({
 		method: 'PUT',
 		url: 'api/section',
-		data: alert($('#'+formID).serialize()),
-		success: function(){
+		datatype: 'JSON',
+		data: arr,
+		success: function(data){
+			console.log(data);
 			alert('Salió bien pió');
 		},
 		error: function(){
