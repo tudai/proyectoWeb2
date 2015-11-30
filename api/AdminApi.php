@@ -63,8 +63,7 @@ class AdminApi extends ApiBase {
           }
         break;
       case 'PUT':
-          echo($_REQUEST['name']);
-          return $this->sectionModel->update($_REQUEST['sectionInput']);
+          return $this->sectionModel->update($this->args);
         break;
       default:
             return 'Verbo no soportado';

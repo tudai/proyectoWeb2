@@ -70,12 +70,12 @@ class BookModel extends BaseModel{
 
 
       function delete($id){
-      	$query = $this->db-prepare('SELECT img_libro FROM libro WHERE id_libro = :id_libro');
+      	$query = $this->db->prepare('SELECT img_libro FROM libro WHERE id_libro = :id_libro');
       	$query->bindParam(':id_libro', $id);
       	$query->execute();
       	$path = $query->fetch();
-      	
-      	$result = $this->removeBookFolder($path);
+
+      	$result = $this->removeBookFolder($path[0]);
       	
       	if ($result){
       		$query = $this->db->prepare('DELETE FROM libro WHERE id_libro = :id_libro');
