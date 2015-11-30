@@ -19,7 +19,7 @@ return [
 			'controller' => 'main',
 			'method' => 'getContent',
 			'tpl' => 'login',
-	],		
+	],
 	'catalog' => [
 			'controller' => 'admin',
 			'method' => 'getContent',
@@ -29,7 +29,7 @@ return [
 			'controller' => 'catalog',
 			'method' => 'getBookByID',
 			'tpl' => 'public-books-list',
-			'args' => ['id']			
+			'args' => ['id']
 	],
 	'loginIn' => [
 			'controller' => 'thePolice',
@@ -51,5 +51,10 @@ return [
 			'method' => 'getContent',
 			'tpl' => 'admin-book-form',
 	],
-		
+	'editFormSection' =>[
+			'controller' => 'admin',
+			'method' => 'getContent',
+			'tpl' => 'admin-list-section',
+	]
+
 ];

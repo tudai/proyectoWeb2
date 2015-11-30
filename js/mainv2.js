@@ -82,12 +82,6 @@ $(function(){
 	  sendBookToServer($(this).attr('data-action'), 'content');
   })
 
-  $('body').on('click', '#uploadSection button', function(event){
-	  event.preventDefault();
-	  sendContentToServer($(this).attr('data-action'), 'uploadSection', function(data){
-		$('#content').html(data);
-	  });
-  })
 
   $('body').on('click', '.list-group-item.sec', function(event){
 		event.preventDefault();
@@ -96,6 +90,10 @@ $(function(){
 		$(this).siblings().removeClass('active');
   })
 
+	$('body').on('click', 'a.modifyS', function(event){
+		event.preventDefault();
+		loadSiteComponent('editFormSection', '#content');
+	})
 
 
   /*

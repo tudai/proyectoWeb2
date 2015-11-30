@@ -91,6 +91,18 @@ function deleteSection(idSection) {
 });
 }
 
+function modifySection(idSection) {
+	$.ajax({
+		method: 'PUT',
+		url: 'api/section/'+idSection,
+		datatype: 'JSON',
+		success: function(){
+			$('#seccion'+idSection)
+		}
+
+	})
+}
+
 $(function(){
 	$('body').on('click', 'a.deleteS', function(event){
 		event.preventDefault();
