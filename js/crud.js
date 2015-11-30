@@ -68,7 +68,8 @@ function deleteBook(idBook) {
 		method: 'DELETE',
 		url: 'api/book/'+idBook,
 		datatype: 'JSON',
-		success: function() {
+		success: function(data) {
+			console.log(data);
 			$('#libro'+idBook).remove();
 		},
 		error: function(){

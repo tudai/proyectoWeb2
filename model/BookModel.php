@@ -26,6 +26,21 @@ class BookModel extends BaseModel{
          return $dir;
       }
 
+      
+      private function removeBookFolder($path){
+      	$divisor = strripos($path, "/");
+      	$path = substr($path, 0, $divisor);
+      	$files = glob($path . "/*");
+      	
+      	foreach($files as $file){
+      		$result = unlink($file);
+      		if (!$result)
+      			return false;
+      	}
+      
+      	return rmdir($path);
+      }
+      
       function getBooks(){
          $query = $this->db->prepare("SELECT * FROM libro");
          $query->execute();
@@ -55,10 +70,23 @@ class BookModel extends BaseModel{
 
 
       function delete($id){
-      	$query = $this->db->prepare('DELETE FROM libro WHERE id_libro = :id_libro');
+      	$query = $this->db-prepare('SELECT img_libro FROM libro WHERE id_libro = :id_libro');
       	$query->bindParam(':id_libro', $id);
-      	return $query->execute();
+      	$query->execute();
+      	$path = $query->fetch();
+      	
+      	$result = $this->removeBookFolder($path);
+      	
+      	if ($result){
+      		$query = $this->db->prepare('DELETE FROM libro WHERE id_libro = :id_libro');
+      		$query->bindParam(':id_libro', $id);
+      		return $query->execute();
+      	} else
+      		return $result;
+      	
       }
+      
+      
       
       function update($obj){
       	
