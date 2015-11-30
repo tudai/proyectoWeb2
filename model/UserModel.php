@@ -1,7 +1,7 @@
 <?php
   require_once 'BaseModel.php';
 
-  
+
 class UserModel extends BaseModel {
 
     function getUserCredentials($username, $password){
@@ -16,9 +16,9 @@ class UserModel extends BaseModel {
     	$query->bindParam(':id_user', $id);
     	return $query->execute();
     }
-    
+
     function update($obj){
-    	 
+    
     }
 }
 

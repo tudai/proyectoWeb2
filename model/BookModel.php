@@ -4,7 +4,7 @@ require_once 'BaseModel.php';
 
 
 class BookModel extends BaseModel{
-	
+
       private function uploadBook($fileBook, $fileImage){
          $folder = $this->prepareFolder($fileBook);
          move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
@@ -27,27 +27,27 @@ class BookModel extends BaseModel{
          return $dir;
       }
 
-      
+
       private function removeBookFolder($path){
       	$divisor = strripos($path, "/");
       	$path = substr($path, 0, $divisor);
       	$files = glob($path . "/*");
-      	
+
       	foreach($files as $file){
       		$result = unlink($file);
       		if (!$result)
       			return false;
       	}
-      
+
       	return rmdir($path);
       }
-      
+
       function getBooks(){
          $query = $this->db->prepare("SELECT * FROM libro");
          $query->execute();
          return $query->fetchAll();
       }
-       
+
       function saveBook($book, $fileBook, $fileImage){
         $path = array();
         $path = $this->uploadBook($fileBook, $fileImage);
@@ -77,20 +77,24 @@ class BookModel extends BaseModel{
       	$path = $query->fetch();
 
       	$result = $this->removeBookFolder($path[0]);
-      	
+
       	if ($result){
       		$query = $this->db->prepare('DELETE FROM libro WHERE id_libro = :id_libro');
       		$query->bindParam(':id_libro', $id);
       		return $query->execute();
       	} else
       		return $result;
-      	
+
       }
-      
-      
-      
+
+
+
       function update($obj){
-      	
+				$query = $this->db->prepare('UPDATE libro SET nombre_libro = :nombre, autor_libro: autor WHERE id_libro = :id');
+				$query->bindParam(':id', $obj[0]);
+				$query->bindParam(':nombre', $obj[1]);
+				$query->bindParam(':autor', $obj[2]);
+				return $query->execute();
       }
 
 }

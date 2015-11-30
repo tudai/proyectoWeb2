@@ -146,13 +146,13 @@ function modifySection() {
 		datatype: 'JSON',
 		success: function(data){
 			console.log(data);
-			alert('Salió bien pió');
+			alert('se modifico la seccion correctamente');
 		},
 		error: function(){
 			alert('No se hay modificado la seccion');
 		}
 
-	})
+	});
 }
 
 function saveSection() {
@@ -165,6 +165,21 @@ function saveSection() {
 		},
 			error: function () {
 				 alert("Se produjo un erro de red. Charlale al admin para que lo arregle");
+		}
+	});
+}
+
+function modifyBook() {
+	$.ajax({
+		method: 'PUT',
+		url:'api/book/'+$('#updateBook').attr('data-id') +"/"+$('#bookName').val()+$('bookAuthor').val(),
+		datatype: 'JSON',
+		success: function(data){
+			console.log(data);
+			alert('se modifico el libro correctamente');
+		},
+		error: function(){
+			alert('No se hay modificado el libro');
 		}
 	});
 }
@@ -197,7 +212,7 @@ $(function(){
   	 loadSiteComponent(this.id, '#content');
   })
 
-  
+
   /* para que al cargar el catalogo se clickee automaticamente
    * el primer elemento de la lista
    */
@@ -222,12 +237,12 @@ $(function(){
 		  $('#updateSection').attr('data-id', id);
 	  });
   })
-  
+
   $('body').on('click', '#listSections a.deleteSection', function(event){
 	event.stopPropagation();
 	var id=$(this).data("id");
 	deleteSection(id);
-  });  
+  });
 
   /*
    * Se envía el contenido del formulario de login.
@@ -250,30 +265,35 @@ $(function(){
 	var id=$(this).data("id");
 	deleteBook(id);
   });
-  
+
 
   $('body').on('click', '#updateSection', function(event){
 	event.preventDefault();
 	event.stopPropagation();
 	modifySection('modifySection');
-  });  
-  
+  });
+
 
   $('body').on('click', '#admin-list-books', function(event){
 	event.stopPropagation();
 	listBooks();
   });
-  
+
 
   $('body').on('click', '#admin-list-section', function(event){
 		event.stopPropagation();
 	listSections();
-  }); 
+  });
 
   $('body').on('click', '#addBook', function(event){
 		event.preventDefault();
 		event.stopPropagation();
 	saveBook();
   });
-  
+	$('body').on('click', '#add-section', function(event){
+		event.preventDefault();
+		event.stopPropagation();
+		saveSection();
+	});
+
 })
