@@ -77,12 +77,6 @@ $(function(){
 	  	});
   })
 
-  $('body').on('click', '#uploadBook button', function(event){
-	  event.preventDefault();
-	  sendBookToServer($(this).attr('data-action'), 'content');
-  })
-
-
   $('body').on('click', '.list-group-item.sec', function(event){
 		event.preventDefault();
 		loadSiteComponent('books-list/'+ this.id, '#bookList');

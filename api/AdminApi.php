@@ -24,8 +24,19 @@ class AdminApi extends ApiBase {
            return $this->bookModel->delete($this->args[0]);
         break;
       case 'POST':
-        // if(isset($_POST['tarea']))
-        //   return $this->model->agregarTarea($_POST['tarea']);
+      	if (isset($_REQUEST['bookName']) && isset($_FILES['bookToUpload']) && isset($_FILES['bookImageToUpload'])){
+      		$book = new stdClass; //se crea el objeto libro para guardar el libro en la base de datos
+      		$book->name = $_REQUEST['bookName'];
+      		$book->author = $_REQUEST['bookAuthor'];
+      		$book->section = $_REQUEST['bookSection'];
+      		$result = $this->modelBook->saveBook($book, $_FILES['bookToUpload'], $_FILES['bookImageToUpload']);
+      		if ($result){
+      			return "Se agregó el libro con exito";
+      		}
+      		else {
+      			return "Se ha encontrado un problema al agregar el libro. Te faltó subir algo";
+      		}
+      	}
         break;
       case 'PUT':
         // if(count($this->args) > 0)
