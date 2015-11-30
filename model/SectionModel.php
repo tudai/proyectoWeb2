@@ -16,9 +16,21 @@ class SectionModel extends BaseModel {
       }
 
     function delete($id){
-    	$query = $this->db->prepare('DELETE FROM section WHERE id_section = :id_section');
+    	$query = $this->db->prepare('SELECT COUNT(id_libro) FROM libro WHERE seccion_id_seccion = :id_section');
     	$query->bindParam(':id_section', $id);
-    	return $query->execute();
+    	$query->execute();
+    	$count =  $query->fetchColumn();
+    	if ($count == 0){
+    		$query = $this->db->prepare('DELETE FROM seccion WHERE id_seccion = :id_section');
+    		$query->bindParam(':id_section', $id);
+    		return $query->execute();
+    	} else
+    		return false;
+    	
+    }
+    
+    function update($obj){
+    	 
     }
     
 }

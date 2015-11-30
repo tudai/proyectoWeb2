@@ -3,9 +3,6 @@ function createBookHTML(book){
 	$.ajax({
 		url: 'js/templates/book.mst',
 		success: function(template){
-
-			console.log(template);
-			console.log(book);
 			var result = Mustache.render(template, book);
 			$('#listBooks').append(result);
 		},
@@ -37,9 +34,6 @@ function createSectionHTML(section){
 	$.ajax({
 		url: 'js/templates/section.mst',
 		success: function(template){
-
-			console.log(template);
-			console.log(section);
 			var result = Mustache.render(template, section);
 			$('#listSections').append(result);
 		},
@@ -83,10 +77,13 @@ function deleteBook(idBook) {
 function deleteSection(idSection) {
 	$.ajax({
 		method: 'DELETE',
-		url: 'api/book/'+idSection,
-		datatype: 'JSON',
-		success: function() {
-			$('#seccion'+idSection).remove();
+		url: 'api/section/'+idSection,
+		success: function(data) {
+			console.log(data);
+			if (data)
+				$('#seccion'+idSection).remove();
+			else
+				alert('No se puede borrar la seccion porque hay libros asociados');
 		},
 		error: function(){
 			alert('Error! No se ha borrado la seccion');
@@ -95,12 +92,12 @@ function deleteSection(idSection) {
 }
 
 $(function(){
-	$('body').on('click', 'a.deleteB', function(event){
+	$('body').on('click', 'a.deleteS', function(event){
 		event.preventDefault();
 		var id=$(this).data("id");
 		deleteSection(id);
 	});
-	$('body').on('click', 'a.deleteS', function(event){
+	$('body').on('click', 'a.deleteB', function(event){
 		event.preventDefault();
 		var id=$(this).data("id");
 		deleteBook(id);

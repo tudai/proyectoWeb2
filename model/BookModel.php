@@ -2,8 +2,8 @@
 
 require_once 'BaseModel.php';
 
-class BookModel extends BaseModel
-    {
+class BookModel extends BaseModel{
+	
       private function uploadBook($fileBook, $fileImage){
          $folder = $this->prepareFolder($fileBook);
          move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
@@ -60,7 +60,11 @@ class BookModel extends BaseModel
       	return $query->execute();
       }
       
-    }
+      function update($obj){
+      	
+      }
+
+}
 
 
  ?>

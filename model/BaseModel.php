@@ -16,6 +16,8 @@ abstract class BaseModel {
   
   abstract function delete($id);
   
+  abstract function update($obj);
+  
   /*
   abstract function save();
   
