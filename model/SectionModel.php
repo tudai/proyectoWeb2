@@ -26,14 +26,18 @@ class SectionModel extends BaseModel {
     		return $query->execute();
     	} else
     		return false;
-    	
+
     }
-    
-    function update($obj){
-    	 
+
+    function update($section){
+      $query = $this->db->prepare('UPDATE seccion SET nombre_seccion = :nombre WHERE id_section = :id_seccion');
+      $query->bindParam(':nombre', $obj);
+      $query->bindParam(':id_seccion', $id);
+      $query->execute();
+
     }
-    
+
 }
 
-	
+
  ?>

@@ -1,7 +1,7 @@
 <section>
   <div id="formContainer" class="container">
   	<div class="col-md-offset-3 col-md-6">
-  	    <form class="uploadForm">
+  	    <form id= "modifySection" class="uploadForm">
   	      	<div class="form-group">
   	       		<label for="sectionInput">Modificar Sección</label>
   	       		<input type="text" class="form-control" name="sectionInput" id="sectionInput" placeholder="Seccion">

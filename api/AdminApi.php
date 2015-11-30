@@ -62,8 +62,7 @@ class AdminApi extends ApiBase {
         //   return $this->model->agregarTarea($_POST['tarea']);
         break;
       case 'PUT':
-        // if(count($this->args) > 0)
-        //   return $this->model->realizarTarea($this->args[0]);
+          return $this->sectionModel->update($_REQUEST['sectionInput']);
         break;
       default:
             return 'Verbo no soportado';

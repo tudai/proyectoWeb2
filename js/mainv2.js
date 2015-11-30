@@ -86,7 +86,10 @@ $(function(){
 
 	$('body').on('click', 'a.modifyS', function(event){
 		event.preventDefault();
-		loadSiteComponent('editFormSection', '#content');
+		loadSiteComponent('editFormSection', '#content', function(){
+			var id=$(this).data("id");
+			$()
+		});
 	})
 
 
