@@ -2,6 +2,7 @@
 
 require_once 'BaseModel.php';
 
+
 class BookModel extends BaseModel{
 	
       private function uploadBook($fileBook, $fileImage){

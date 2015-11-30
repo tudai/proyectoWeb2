@@ -37,7 +37,7 @@
 	          <input class="col-md-12" type="file" name="bookToUpload">
 	        </div>
 	        <div class="form-group button-container col-md-12">
-	          <button data-action="add-book" type="submit" class="btn btn-default">Subir</button>
+	          <button id="addBook" data-action="add-book" type="submit" class="btn btn-default">Subir</button>
 	        </div>
 	      </div>
 	    </form>

@@ -14,7 +14,7 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    	<ul class="nav navbar-nav">
 			    		<li class="action"><a id="home" href="#">Home</a></li>
-						<li class="action"><a id="catalog" href="#">Catálogo</a></li>
+						<li><a id="catalog" href="#">Catálogo</a></li>
 				        <li class="action"><a id="faq" href="#">FAQ</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
@@ -22,7 +22,7 @@
 							    <li><a id="admin-list-books" href="#">Listar Libros</a></li>
 							    <li class="action"><a id="admin-book-form" href="#">Agregar Libro</a></li>
 							    <li><a id="admin-list-section" href="#">Listar Categorías</a></li>
-							    <li class="action"><a id="admin-section-form" href="#">Agregar Categoría</a></li>
+							    <li class="action"><a id="admin-section-form" href="#">Agregar Sección</a></li>
 								<li class="action"><a id="logout" href="#">Logout</a></li>
 							{else}
 									<li class="action"><a id="login" href="#">Login</a></li>
@@ -32,3 +32,5 @@
 			  </div><!-- /.container-fluid -->
 
 			</nav>
+
+			

@@ -1,6 +1,7 @@
 <?php
   require_once 'BaseModel.php';
 
+  
 class UserModel extends BaseModel {
 
     function getUserCredentials($username, $password){

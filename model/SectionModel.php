@@ -1,6 +1,7 @@
 <?php
     require_once 'BaseModel.php';
 
+    
 class SectionModel extends BaseModel {
       function getSections(){
         $query = $this->db->prepare("SELECT id_seccion, nombre_seccion FROM seccion");

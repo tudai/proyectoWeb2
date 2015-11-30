@@ -1,6 +1,8 @@
   <li id="libro{{id_libro}}" class="list-group-item">
-    <span><a class="glyphicon glyphicon-pencil modifyB" ></a></span>
-    <span><a class="glyphicon glyphicon-trash deleteB" data-id={{id_libro}}  ></a></span>
+    <span><a class="glyphicon glyphicon-pencil modifyBook" ></a></span>
+    <span><a class="glyphicon glyphicon-trash deleteBook" data-id={{id_libro}}  ></a></span>
     <span>{{nombre_libro}}</span>
     <span>{{autor_libro}}</span>
   </li>
+
+  
