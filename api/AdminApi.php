@@ -40,7 +40,7 @@ class AdminApi extends ApiBase {
       	}
         break;
       case 'PUT':
-         return $this->bookModel->update($this->args[0]);
+         return $this->bookModel->update($this->args);
         break;
       default:
             return 'Verbo no soportado';
