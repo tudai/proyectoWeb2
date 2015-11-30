@@ -37,16 +37,13 @@ abstract class BaseController{
 	 return $arreglo;
 	}
 
-	function getBooksForTable($content){
+	function getBooksForTable($args){
 		$arreglo = $this->buildBooksForTable();
 		$arr = array('books' => $arreglo);
-		return $this->view->getHTML($content, null, $arr);
+		return $this->view->getHTML($args['tpl'], null, $arr);
 	}
 	
-	
-	function getBookAndSection($content){
-	}
 
-	abstract function getContent($content);
+	abstract function getContent($args);
 
 }

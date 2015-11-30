@@ -25,8 +25,8 @@ class MainController extends BaseController{
 	/*
 	 * Retorna una tpl cuyo nombre esta dato por $content
 	 * */
-	function getContent($content){
-		return $this->view->getHTML($content);
+	function getContent($args){
+		return $this->view->getHTML($args['tpl']);
 	}
 
 	function getSections(){

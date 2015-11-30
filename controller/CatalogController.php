@@ -11,10 +11,10 @@ class CatalogController extends BaseController{
 
 	}
 
-	function getBookByID($content, $id){
-		$books = $this->modelBook->getBookBySectionID($id);
+	function getBookByID($args){
+		$books = $this->modelBook->getBookBySectionID($args['args']['id']);
 		$arr = array('books' => $books);
-		return $this->view->getHTML($content, null, $arr);
+		return $this->view->getHTML($args['tpl'], null, $arr);
 	}
 
 }

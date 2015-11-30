@@ -21,27 +21,40 @@ class Router{
 	
 		$pattern = $this->processRequest($request, $routes);
 		
-		$routeElement = $pattern[0]['route']; 
+		$routeElement = $pattern['route']; 
 		
 		$this->controller = ucfirst($routes[$routeElement]['controller']).'Controller'; // ->LalaController
 		$this->method = $routes[$routeElement]['method']; // -> getBook
-		$this->args = $pattern[2]; // {"id": "9"}
+		
+		$this->args['tpl'] = $pattern['tpl'];
+		if ($pattern['args'] !=null)
+			$this->args['args'] = $pattern['args'];
+	
+	
 	}
 
 	function processRequest($request, $routes){
 		$params = explode("/", rtrim($request['action'], '/')); // book/9 => [book, 9]
-		$route = array_shift($params); // book << $params => [9] 
-		$args = $routes[$route]['args']; 
+		
+		if ($params[0] != "")
+			$route = array_shift($params); // book << $params => [9]
+		else
+			$route = '/';
+		
+		
 		
 		$result = array();
-		$result[0]['route'] = $route;
-		$result[1]['tpl'] =  $routes[$route]['tpl'];
+		$result['route'] = $route;
+		$result['tpl'] =  $routes[$route]['tpl'];
 		$t=0;
-		foreach($args as $value){
-			$result[2][$value] = $params[$t];
-			$t++; 
+		
+		if ($routes[$route]['args']!= null){
+			$args = $routes[$route]['args'];
+			foreach($args as $value){
+				$result['args'][$value] = $params[$t];
+				$t++;
+			}
 		}
-		echo json_encode($result);
 		return $result;
 	}
 	
@@ -49,10 +62,9 @@ class Router{
 		
 		if (method_exists($this->controller, $this->method)) {
 		 	$obj = new $this->controller();
-		 	$params = array();
-		 	
-					 		
-		    echo $obj->{$this->method}($this->$args);
+		 //	echo $this->controller ."->".$this->method.": ". json_encode($this->args);
+
+		 	echo $obj->{$this->method}($this->args);
 		 } 
 	}
 	

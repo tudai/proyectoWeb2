@@ -2,7 +2,8 @@
 return [
 	'/' => [
 			'controller' => 'main',
-			'method' => 'getHome'
+			'method' => 'getHome',
+			'tpl' => 'home'
 	],
 	'home' => [
 			'controller' => 'main',

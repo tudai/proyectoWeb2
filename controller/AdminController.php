@@ -39,10 +39,10 @@ class AdminController extends BaseController{
 		}
 	}
 
-	function getContent($content){
+	function getContent($args){
 		$sections = $this->modelSection->getSections();
 		$arr = array('sections' => $sections);
-		return $this->view->getHTML($content, null, $arr);
+		return $this->view->getHTML($args['tpl'], null, $arr);
 	}
 
 
