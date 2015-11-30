@@ -54,6 +54,12 @@ class BookModel extends BaseModel
       }
 
 
+      function delete($id){
+      	$query = $this->db->prepare('DELETE FROM libro WHERE id_libro = :id_libro');
+      	$query->bindParam(':id_libro', $id);
+      	return $query->execute();
+      }
+      
     }
 
 

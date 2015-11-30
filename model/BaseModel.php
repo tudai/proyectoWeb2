@@ -13,6 +13,9 @@ class BaseModel {
       $this->db = new PDO(DatabaseConfig::$DB_LOCATION, DatabaseConfig::$DB_USER, DatabaseConfig::$DB_PASSWORD);
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
+  
+  abstract function delete($id);
+  
   /*
   abstract function save();
   
