@@ -5,7 +5,7 @@
 	    <form id="sectionAdd" class="uploadForm">
 	      	<div class="form-group">
 	       		<label for="sectionAdd">Agregar secciones de libros</label>
-	       		<input type="text" class="form-control" name="sectionAdd" id="sectionAdd" placeholder="Seccion">
+	       		<input type="text" class="form-control" name="sectionAdd" id="sectionInputAdd" placeholder="Seccion">
 	      	</div>
 	     	<div class="form-group">
 	      	<button id="addSection" data-action="add-section" type="submit" class="btn btn-default">Enviar</button>

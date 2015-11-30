@@ -24,6 +24,7 @@ abstract class BaseController{
 			$listOfBooks = [
 				'nombre_libro' =>$book['nombre_libro'],
 				'autor_libro' =>$book['autor_libro'],
+				'img_libro' => $book['img_libro'],	
 				'seccion_id_seccion' => ''
 			];
 			foreach($categories as $cat) {

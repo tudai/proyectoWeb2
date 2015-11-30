@@ -158,10 +158,10 @@ function modifySection() {
 function saveSection() {
 	$.ajax({
 		method: 'POST',
-		url:'api/section',
+		url:'api/section/'+$('#sectionInputAdd').val(),
 		datatype: 'JSON',
 		success: function(){
-			 alert('anduvo');
+			 alert('Se guardó con exito la sección');
 		},
 			error: function () {
 				 alert("Se produjo un erro de red. Charlale al admin para que lo arregle");
@@ -172,7 +172,7 @@ function saveSection() {
 function modifyBook() {
 	$.ajax({
 		method: 'PUT',
-		url:'api/book/'+$('#updateBook').attr('data-id') +"/"+$('#bookName').val()+$('bookAuthor').val(),
+		url:'api/book/'+$('#updateBook').attr('data-id') +"/"+$('#bookName').val()+"/"+$('#bookAuthor').val(),
 		datatype: 'JSON',
 		success: function(data){
 			console.log(data);
@@ -270,9 +270,14 @@ $(function(){
   $('body').on('click', '#updateSection', function(event){
 	event.preventDefault();
 	event.stopPropagation();
-	modifySection('modifySection');
+	modifySection();
   });
 
+  $('body').on('click', '#updateBook', function(event){
+		event.preventDefault();
+		event.stopPropagation();
+		modifyBook();
+	  });
 
   $('body').on('click', '#admin-list-books', function(event){
 	event.stopPropagation();
@@ -290,10 +295,21 @@ $(function(){
 		event.stopPropagation();
 	saveBook();
   });
-	$('body').on('click', '#add-section', function(event){
+  
+  $('body').on('click', '#addSection', function(event){
 		event.preventDefault();
 		event.stopPropagation();
 		saveSection();
 	});
 
+  $('body').on('click', '#listBooks a.modifyBook', function(event){
+		event.stopPropagation();
+	  id=$(this).data("id");
+	  loadSiteComponent('editFormBook', '#content', function(){
+		  $('#updateBook').attr('data-id', id);
+	  });
+  })
+  
+  
+  
 })

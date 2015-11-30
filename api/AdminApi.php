@@ -17,8 +17,8 @@ class AdminApi extends ApiBase {
   function book(){
     switch ($this->method) {
       case 'GET':
+      	
       	return $books = $this->bookModel->getBooks();
-
         break;
       case 'DELETE':
         if(count($this->args) > 0)
@@ -58,9 +58,8 @@ class AdminApi extends ApiBase {
            return $this->sectionModel->delete($this->args[0]);
         break;
       case 'POST':
-        	if (isset($_REQUEST['sectionAdd'])){
-            return $this->sectionModel->saveSection($_REQUEST['sectionAdd']);
-          }
+            return $this->sectionModel->saveSection($this->args[0]);
+          
         break;
       case 'PUT':
           return $this->sectionModel->update($this->args);

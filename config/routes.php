@@ -60,6 +60,13 @@ return [
 			'controller'=>'admin',
 			'method' => 'getContent',
 			'tpl' => 'admin-section-form',
+	],
+	'editFormBook'=>[
+			'controller'=>'admin',
+			'method' => 'getContent',
+			'tpl' => 'admin-list-books',
 	]
+		
+	
 
 ];

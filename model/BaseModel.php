@@ -7,7 +7,7 @@ abstract class BaseModel {
   protected  $book;
   protected  $db;
 
-  protected static $ROOT_FOLDER = '../uploaded/books';
+  protected static $ROOT_FOLDER = 'uploaded/books';
 
   function __construct() {
       $this->db = new PDO(DatabaseConfig::$DB_LOCATION, DatabaseConfig::$DB_USER, DatabaseConfig::$DB_PASSWORD);
@@ -18,13 +18,6 @@ abstract class BaseModel {
   
   abstract function update($obj);
   
-  /*
-  abstract function save();
-  
-  abstract function get();
-  
-  abstract function getById();
-  */
 }
 
 

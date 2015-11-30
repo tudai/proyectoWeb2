@@ -7,8 +7,8 @@ class BookModel extends BaseModel{
 
       private function uploadBook($fileBook, $fileImage){
          $folder = $this->prepareFolder($fileBook);
-         move_uploaded_file($fileBook['tmp_name'], $folder . $fileBook['name']);
-         move_uploaded_file($fileImage['tmp_name'], $folder . $fileImage['name']);
+         move_uploaded_file($fileBook['tmp_name'], "../".$folder . $fileBook['name']);
+         move_uploaded_file($fileImage['tmp_name'], "../".$folder . $fileImage['name']);
 
          $paths = array();
          $paths['base_path'] = $folder;
@@ -22,7 +22,7 @@ class BookModel extends BaseModel{
       private function prepareFolder($file){
          $dir = BaseModel::$ROOT_FOLDER ."/".uniqid().$file['name']."/";
          if (!file_exists($dir)){
-           mkdir($dir, 0755);
+           mkdir("../".$dir, 0755);
          }
          return $dir;
       }
@@ -30,7 +30,7 @@ class BookModel extends BaseModel{
 
       private function removeBookFolder($path){
       	$divisor = strripos($path, "/");
-      	$path = substr($path, 0, $divisor);
+      	$path = "../".substr($path, 0, $divisor);
       	$files = glob($path . "/*");
 
       	foreach($files as $file){
@@ -90,11 +90,11 @@ class BookModel extends BaseModel{
 
 
       function update($obj){
-				$query = $this->db->prepare('UPDATE libro SET nombre_libro = :nombre, autor_libro: autor WHERE id_libro = :id');
-				$query->bindParam(':id', $obj[0]);
-				$query->bindParam(':nombre', $obj[1]);
-				$query->bindParam(':autor', $obj[2]);
-				return $query->execute();
+			$query = $this->db->prepare('UPDATE libro SET nombre_libro = :nombre, autor_libro =:autor WHERE id_libro = :id');
+			$query->bindParam(':id', $obj[0]);
+			$query->bindParam(':nombre', $obj[1]);
+			$query->bindParam(':autor', $obj[2]);
+			return $query->execute();
       }
 
 }
