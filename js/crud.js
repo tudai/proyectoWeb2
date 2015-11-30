@@ -97,15 +97,10 @@ function deleteSection(idSection) {
 
 function modifySection() {
 
-	var arr = {
-		'name': $('#sectionInput').val(),
-		'data-id':$('#updateSection').attr('data-id')
-	};
 	$.ajax({
 		method: 'PUT',
-		url: 'api/section',
+		url: 'api/section/'+$('#updateSection').attr('data-id') +"/"+$('#sectionInput').val(),
 		datatype: 'JSON',
-		data: arr,
 		success: function(data){
 			console.log(data);
 			alert('Salió bien pió');
