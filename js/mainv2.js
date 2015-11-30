@@ -86,9 +86,9 @@ $(function(){
 
 	$('body').on('click', 'a.modifyS', function(event){
 		event.preventDefault();
+		id=$(this).data("id");
 		loadSiteComponent('editFormSection', '#content', function(){
-			var id=$(this).data("id");
-			$()
+			$('#updateSection').attr('data-id', id);
 		});
 	})
 

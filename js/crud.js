@@ -95,10 +95,13 @@ function deleteSection(idSection) {
 }
 
 function modifySection(formID) {
+	var arr = [
+
+	];
 	$.ajax({
 		method: 'PUT',
 		url: 'api/section',
-		data: $('#'+formID).serialize(),
+		data: alert($('#'+formID).serialize()),
 		success: function(){
 			alert('Salió bien pió');
 		},
@@ -113,7 +116,7 @@ function modifySection(formID) {
 function saveBook(){
 	var datos = new FormData($('#uploadBook')[0]);
     datos.append('bookSection', $('select[name="bookSection"] option:selected').attr('id'));
-    
+
 	$.ajax({
 		method: 'POST',
 		url:'api/book',
@@ -144,8 +147,7 @@ $(function(){
 	});
 	$('body').on('click', '#modifySection button', function(event){
 		event.preventDefault();
-		modifySection('modifySection')
-
+		modifySection('modifySection');
 	});
 	$('body').on('click', '#admin-list-books', function(event){
 		event.preventDefault();
@@ -155,11 +157,11 @@ $(function(){
 		event.preventDefault();
 		listSections();
 	});
-	
+
 
 	$('body').on('click', '#uploadBook button[type="submit"]', function(event){
 		event.preventDefault();
 		saveBook();
 	});
-	  	
+
 })

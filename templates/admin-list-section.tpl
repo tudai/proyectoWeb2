@@ -7,7 +7,7 @@
   	       		<input type="text" class="form-control" name="sectionInput" id="sectionInput" placeholder="Seccion">
   	      	</div>
   	     	  <div class="form-group">
-  	      	    <button data-action="add-section" type="submit" class="btn btn-default">Enviar</button>
+  	      	    <button id="updateSection" data-action="add-section" type="submit" class="btn btn-default">Enviar</button>
   	    	  </div>
   	    </form>
   	</div>
