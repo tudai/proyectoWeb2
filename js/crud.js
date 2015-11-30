@@ -7,25 +7,26 @@ function createHTML(book) {
     });
 }
 
-function listBooks(book){
+function listBooks(){
 	$.ajax({
 	method: 'GET',
 	url:'api/AdminApi',
 	datatype: 'JSON',
-	data: book,
 	success: function(idBook){
-		book.id=idBook;
-		var html = crearTareaHTML(book);
-		$('#listBooks').append(html);
-	},
-	error: function () {
-		alert('Error');
-	}
+		$('#listBooks').html('');
+	      book.forEach(function(book){
+	         var html = createHTML(book);
+	        $('#listBooks').append(html);
+	      });
+	      console.log(book);
+	    },
+	    error: function () {
+	      alert('Error');
 });
 }
 
 
 
 $(function(){
-
+	listBooks();
 })
